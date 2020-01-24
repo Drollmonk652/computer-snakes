@@ -14,11 +14,11 @@ double height;
 
 height=220;
 
-earea=(4/3)*PI*erad*erad*erad;
+volume=(4/3)*PI*erad*erad*erad;
 
 printf(
-"The tangential speed of earth is %leters per second\n"
-"The volume of the eath is %l cubic meters\n"
+"The tangential speed of earth is %l meters per second\n"
+"The volume of the eath is %l cubic meters\n",volume
 "The centripetal acceleration of the eath is %l meters per second squared\n"
 "The percent different is %l percent\n"
 );
