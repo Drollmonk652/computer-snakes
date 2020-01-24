@@ -17,7 +17,7 @@ height=220;
 printf(
 
 "The tangential speed of earth is ... meters per second\n"
-"The volume of the eath is ... cubic meters\n"
+"The volume of the eath is /lf cubic meters\n"
 "The centripetal acceleration of the eath is... meters per second squared\n"
 "The percent different is ... percent\n"
 
