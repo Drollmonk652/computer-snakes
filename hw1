@@ -1,5 +1,5 @@
-#inlcude <stdio.h>
-#inlcude <math.h>
+#include <stdio.h>
+#include <math.h>
 
 #define PI 3.141953
 #define G 6.67257E-11
@@ -12,16 +12,23 @@ int main(void)
 
 double height;
 
-height=220
+height=220;
 
-printf()
+printf(
 
-\*
+"The tangential speed of earth is ... meters per second\n"
+"The volume of the eath is ... cubic meters\n"
+"The centripetal acceleration of the eath is... meters per second squared\n"
+"The percent different is ... percent\n"
+
+);
+
+/*
 The tangential speed of warth is ... meters per second
-The colume of the eath is ... cubic meters
+The volume of the eath is ... cubic meters
 The centripetal acceleration of the eath is... meters per second squared
 The percent different is ... percent
-*\
+*/
 
 return 0;
 
