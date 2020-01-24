@@ -14,21 +14,14 @@ double height;
 
 height=220;
 
+earea=(4/3)*PI*erad*erad*erad;
+
 printf(
-
-"The tangential speed of earth is ... meters per second\n"
-"The volume of the eath is /lf cubic meters\n"
-"The centripetal acceleration of the eath is... meters per second squared\n"
-"The percent different is ... percent\n"
-
+"The tangential speed of earth is %leters per second\n"
+"The volume of the eath is %l cubic meters\n"
+"The centripetal acceleration of the eath is %l meters per second squared\n"
+"The percent different is %l percent\n"
 );
-
-/*
-The tangential speed of warth is ... meters per second
-The volume of the eath is ... cubic meters
-The centripetal acceleration of the eath is... meters per second squared
-The percent different is ... percent
-*/
 
 return 0;
 
