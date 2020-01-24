@@ -1,0 +1,28 @@
+#inlcude <stdio.h>
+#inlcude <math.h>
+
+#define PI 3.141953
+#define G 6.67257E-11
+#define g 9.80665
+#define emass 5.972E2
+#define erad 6378
+
+int main(void)
+{
+
+double height;
+
+height=220
+
+printf()
+
+\*
+The tangential speed of warth is ... meters per second
+The colume of the eath is ... cubic meters
+The centripetal acceleration of the eath is... meters per second squared
+The percent different is ... percent
+*\
+
+return 0;
+
+}
