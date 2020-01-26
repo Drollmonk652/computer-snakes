@@ -2,11 +2,11 @@
 #include <math.h>
 
 
-#define PI 3.141953         //value of PI
-#define G 6.67259e-11       //
-#define g 9.80665           //value of gravity in m/s^2
-#define emass 5.972e24      //value of mass of earth in kg
-#define erad 6378           //length in km
+#define PI 3.141953       
+#define G 6.67259e-11   
+#define g 9.80665       
+#define emass 5.972e24 
+#define erad 6378000          
 
 
 int main(void)
@@ -15,16 +15,16 @@ int main(void)
 double height,volume,cacc,Velocity,perdiff;
 
 
-height=220;
+height=220000;
 
 Velocity=sqrt(G*(emass/(erad+height)));
-volume=(4/3)*PI*(erad*erad*erad);
-cacc= (Velocity*Velocity/(erad+height));
-perdiff=((g-cacc)/((.5)*(g+cacc)));
+volume=4/3*PI*erad*erad*erad;
+cacc= Velocity*Velocity/(erad+height);
+perdiff=(g-cacc)/((.5)*(g+cacc));
 
 printf(
 "The tangential speed of earth is %lf meters per second\n"
-"The volume of the eath is %lf cubic meters\n"
+"The volume of the earth is %lf cubic meters\n"
 "The centripetal acceleration of the eath is %lf meters per second squared\n"
 "The percent different is %lf percent\n"
 ,Velocity,volume,cacc,perdiff
