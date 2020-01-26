@@ -18,9 +18,9 @@ double height,volume,cacc,Velocity,perdiff;
 height=220000;
 
 Velocity=sqrt(G*(emass/(erad+height)));
-volume=4/3*PI*erad*erad*erad;
+volume=4.0/3.0*PI*erad*erad*erad;
 cacc= Velocity*Velocity/(erad+height);
-perdiff=(g-cacc)/((.5)*(g+cacc));
+perdiff=(g-cacc)/(.5*(g+cacc))*100;
 
 printf(
 "The tangential speed of earth is %lf meters per second\n"
