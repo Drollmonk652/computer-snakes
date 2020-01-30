@@ -1,26 +1,39 @@
 /*Julio Gonzalez homework2 1/30/20 */
 
-<stdio.h>
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.141953       
+#define G 6.67259e-11   
+#define g 9.80665       
+#define emass 5.972e24 
+#define erad 6378000  
 
 int main(void)
 {
 
-const int, Sdist;
-float, ;
+const int Sdist;
+float height,volume,cacc,Velocity,perdiff);
 
 Sdist=220;
 
-printf("Satelite distance : .... km");
-printf("The circumference of the orbit is ... meters per second");
-printf("The Volume of the Earth is ... cubic meters");
-printf("The centripetal accelaration is ... meters per second squared");
-printf("The acceleration percent difference is ... percent");
 
-printf("Orbit Circumference   ...km");
-printf("Tangentail speed      ... m/s");
-printf("Earth volume          ... m^3");
-printf("centripetal acc.      ... m/s^2");
-printf("Percent diff          ... %%");
+Velocity=sqrt(G*(emass/(erad+height)));
+volume=4.0/3.0*PI*erad*erad*erad;
+cacc= Velocity*Velocity/(erad+height);
+perdiff=(g-cacc)/(.5*(g+cacc))*100;
+
+printf("Satelite distance : .... km\n");
+printf("The circumference of the orbit is ... meters per second\n");
+printf("The Volume of the Earth is ... cubic meters\n");
+printf("The centripetal accelaration is ... meters per second squared\n");
+printf("The acceleration percent difference is ... percent\n\n");
+
+printf("Orbit Circumference   ...km\n");
+printf("Tangentail speed      ... m/s\n");
+printf("Earth volume          ... m^3\n");
+printf("centripetal acc.      ... m/s^2\n");
+printf("Percent diff          ... %%"\n);
 
 return 0;
 
