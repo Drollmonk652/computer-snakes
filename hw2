@@ -8,19 +8,19 @@
 #define g 9.80665       
 #define emass 5.972e24 
 #define erad 6378000  
+#define Satelight
 
 int main(void)
 {
 
-const int Sdist;
 float height,volume,cacc,Velocity,perdiff);
 
 Sdist=220;
 
 
-Velocity=sqrt(G*(emass/(erad+height)));
-volume=4.0/3.0*PI*erad*erad*erad;
-cacc= Velocity*Velocity/(erad+height);
+Velocity=sqrt(G*(emass/(erad+Satelite)));
+volume=4.0/3.0*PI*erad+Satelight*erad+Satelite*erad+Satelite;
+cacc= Velocity*Velocity/(erad+Satelight);
 perdiff=(g-cacc)/(.5*(g+cacc))*100;
 
 printf("Satelite distance : .... km\n");
