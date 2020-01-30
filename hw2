@@ -5,6 +5,10 @@
 int main(void)
 {
 
+const int, Sdist;
+float, ;
+
+Sdist=220;
 
 printf("Satelite distance : .... km");
 printf("The circumference of the orbit is ... meters per second");
@@ -12,12 +16,11 @@ printf("The Volume of the Earth is ... cubic meters");
 printf("The centripetal accelaration is ... meters per second squared");
 printf("The acceleration percent difference is ... percent");
 
-printf("");
-printf("");
-printf("");
-printf("");
-printf("centripetal acc.  ... m/s^2");
-printf("Percent diff      ...%%");
+printf("Orbit Circumference   ...km");
+printf("Tangentail speed      ... m/s");
+printf("Earth volume          ... m^3");
+printf("centripetal acc.      ... m/s^2");
+printf("Percent diff          ... %%");
 
 return 0;
 
