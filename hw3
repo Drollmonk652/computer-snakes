@@ -1,0 +1,21 @@
+/*Julio Gonzalez 1/31/20 HW2*/
+
+#include <stdio.h>
+
+int main()
+{
+
+printf("PROGRAM TO CALULATE ROOT(S) of POLYNOMIAL\n");
+
+printf("ax^2 + bx + c \n");
+printf("Enter a : \n");
+printf("Enter b : \n");
+printf("Enter c : \n");
+printf("The discriminant is \n");
+printf("The root(s) of ... x^2 + ...x + ... is: \n");
+printf()
+
+
+return 0;
+
+}
