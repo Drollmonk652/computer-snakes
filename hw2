@@ -23,19 +23,20 @@ volume=4.0/3.0*PI*rm*rm*rm;
 cacc= Velocity*Velocity/rm;
 perdiff=(g-cacc)/(.5*(g+cacc))*100;
 
-printf("Satelite distance : %d km\n",Satelite);
+printf("Satelite distance : %d km\n\n",Satelite);
 printf("The circumference of the orbit is %.3f km\n",cir);
 printf("The tangentail speed is %.3f meters per second\n",Velocity);
 printf("The Volume of the Earth is %.3e cubic meters\n",volume);
 printf("The centripetal accelaration is %.2f meters per second squared\n",cacc);
 printf("The acceleration percent difference is %.2f percent\n\n",perdiff);
 
-
-printf("Orbit Circumference   %.3f km\n",cir);
-printf("Tangentail speed      %.3f m/s\n",Velocity);
-printf("Earth volume          %.3e m^3\n",volume);
-printf("centripetal acc.      %.2f m/s^2\n",cacc);
-printf("Percent diff          %.2f %%\n",perdiff);
+printf("Properties              Value\n");
+printf("-------------------------------------\n");
+printf("Orbit Circumference   %10.3f km\n",cir);
+printf("Tangentail speed      %10.3f m/s\n",Velocity);
+printf("Earth volume          %10.3e m^3\n",volume);
+printf("centripetal acc.      %10.2f m/s^2\n",cacc);
+printf("Percent diff.         %10.2f %%\n",perdiff);
 
 return 0;
 
