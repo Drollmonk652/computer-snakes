@@ -7,32 +7,35 @@
 #define G 6.67259e-11   
 #define g 9.80665       
 #define emass 5.972e24 
-#define erad 6378000  
+#define erad 6378 
 #define Satelite 220
 
 int main(void)
 {
 
-float volume,cacc,Velocity,perdiff;
+double volume,cacc,Velocity,perdiff,cir,r,rm;
 
-
-
-Velocity=sqrt(G*(emass/(erad+Satelite)));
-volume=4.0/3.0*PI*erad+Satelite*erad+Satelite*erad+Satelite;
-cacc= Velocity*Velocity/(erad+Satelite);
+r=erad+Satelite;
+rm=r*1000;
+cir=2*PI*r;
+Velocity=sqrt(G*emass/rm);
+volume=4.0/3.0*PI*rm*rm*rm;
+cacc= Velocity*Velocity/rm;
 perdiff=(g-cacc)/(.5*(g+cacc))*100;
 
-printf("Satelite distance : .... km\n");
-printf("The circumference of the orbit is ... meters per second\n");
-printf("The Volume of the Earth is ... cubic meters\n");
-printf("The centripetal accelaration is ... meters per second squared\n");
-printf("The acceleration percent difference is ... percent\n\n");
+printf("Satelite distance : %d km\n",Satelite);
+printf("The circumference of the orbit is %.3f km\n",cir);
+printf("The tangentail speed is %.3f meters per second\n",Velocity);
+printf("The Volume of the Earth is %.3e cubic meters\n",volume);
+printf("The centripetal accelaration is %.2f meters per second squared\n",cacc);
+printf("The acceleration percent difference is %.2f percent\n\n",perdiff);
 
-printf("Orbit Circumference   ...km\n");
-printf("Tangentail speed      ... m/s\n");
-printf("Earth volume          ... m^3\n");
-printf("centripetal acc.      ... m/s^2\n");
-printf("Percent diff          ... %%\n");
+
+printf("Orbit Circumference   %.3f km\n",cir);
+printf("Tangentail speed      %.3f m/s\n",Velocity);
+printf("Earth volume          %.3e m^3\n",volume);
+printf("centripetal acc.      %.2f m/s^2\n",cacc);
+printf("Percent diff          %.2f %%\n",perdiff);
 
 return 0;
 
