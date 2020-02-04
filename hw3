@@ -5,15 +5,21 @@
 int main()
 {
 
+int a,b,c;
+
+
 printf("PROGRAM TO CALULATE ROOT(S) of POLYNOMIAL\n");
 
 printf("ax^2 + bx + c \n");
 printf("Enter a : \n");
+scanf("%i",&a);
 printf("Enter b : \n");
+scanf("%i",&b);
 printf("Enter c : \n");
+scanf("%i",&c);
 printf("The discriminant is \n");
-printf("The root(s) of ... x^2 + ...x + ... is: \n");
-printf()
+printf("The root(s) of %i x^2 + %i x + %i is: %i \n",a,b,c,a+b+c);
+
 
 
 return 0;
