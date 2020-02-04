@@ -1,27 +1,30 @@
 /*Julio Gonzalez 1/31/20 HW2*/
 
 #include <stdio.h>
+#include <math.h>
 
-int main()
+float main()
 {
 
-int a,b,c;
+double a,b,c,d,x1,x2;
+
+d=;
+
 
 
 printf("PROGRAM TO CALULATE ROOT(S) of POLYNOMIAL\n");
 
 printf("ax^2 + bx + c \n");
-printf("Enter a : \n");
-scanf("%i",&a);
-printf("Enter b : \n");
-scanf("%i",&b);
-printf("Enter c : \n");
-scanf("%i",&c);
+printf("Enter a :");scanf("%lf",&a);
+printf("Enter b :");scanf("%lf",&b);
+printf("Enter c :");scanf("%lf",&c);
+
 printf("The discriminant is \n");
-printf("The root(s) of %i x^2 + %i x + %i is: %i \n",a,b,c,a+b+c);
+printf("The root(s) of %f x^2 + %f x + %f is: %f \n",a,b,c,a*a+b+c);
 
 
 
 return 0;
 
 }
+
