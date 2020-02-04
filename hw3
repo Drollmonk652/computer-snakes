@@ -6,11 +6,7 @@
 float main()
 {
 
-double a,b,c,d,x1,x2;
-
-d=;
-
-
+double a,b,c,bc,d,x1,x2;
 
 printf("PROGRAM TO CALULATE ROOT(S) of POLYNOMIAL\n");
 
@@ -19,12 +15,16 @@ printf("Enter a :");scanf("%lf",&a);
 printf("Enter b :");scanf("%lf",&b);
 printf("Enter c :");scanf("%lf",&c);
 
-printf("The discriminant is \n");
-printf("The root(s) of %f x^2 + %f x + %f is: %f \n",a,b,c,a*a+b+c);
+d=b*b-4*a*c;
+bc=2*a;
+x1=(-b-sqrt(d))/bc;
+x2=(-b+sqrt(d))/bc;
 
-
+printf("The discriminant is %.3lf \n",d);
+printf("The root(s) of %.4f x^2 + %.4f x + %.4f is: \n",a,b,c);
+printf("x1 = %.3lf \n",x1);
+printf("x2 = %.3lf \n",x2);
 
 return 0;
 
 }
-
