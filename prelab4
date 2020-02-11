@@ -1,3 +1,4 @@
+  
 /*
 Julio Gonzlaez
 Prelab#4
@@ -11,7 +12,7 @@ int main(void)
 	float Fahrenheit,Celcius, Rankine, Feet, Inches, Centimeters, Pounds, Newtons, Kilograms, Gravity;
 	char ft,in,c1,c2,c3;
 	int a,b;
-	double d,d1;
+	double d1;
 	
 	/*1. Fahrenheit to Celcius*/
 	Celcius=(Fahrenheit-32)*5/9;
@@ -24,19 +25,23 @@ int main(void)
 	/*5. Newtons to Kilograms*/
 	Kilograms=Newtons/Gravity;
 	
-	/*6.printf practice*/
-    printf("Enter your height");
-	scanf("%c",&ft);scanf("%c",&in);
-	printf("%c\' %c\"",ft,in);
-
-	
+	/*6. printf practice*/
+    //printf("Enter your height in feet and inches: ");
+	//scanf("%c",&ft);scanf("%c",&in);
+	//printf("%c\' %c\"",ft,in);
+    /*7. series of statements*/
+    printf("Temp(DegF) | Temp(DegC) | Temp(DegR) | Temp(DegK)");
+    printf("------------+------------+------------+-----------);	
 	
 	/*8. 2 integers in separate values*/
-	//scanf("%d %d"&a,&b);
+	//printf("2 integers:\n");
+	//scanf("%d",&a);scanf("%d",&b);
 	/*9. double and stores ir in a variable*/
-	//scanf(" %d ",&d1);
+	//printf("a double:\n");
+	//scanf("%lf",&d1);
 	/*10.3 characters and stores them*/
-	//scanf("%c%c%c",&c1,&c2,&bc3);
+	//printf("3 chacters:\n");
+	//scanf(" %c %c %c",&c1,&c2,&c3);
 	
 	return 0;
 }
