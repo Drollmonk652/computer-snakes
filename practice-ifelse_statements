@@ -1,28 +1,30 @@
 /*Julio Gonzalez 2/13/20*/
-/*and && or || not !*/
 
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 int main(void)
 {
 
-int a,b,c;
+char name[30][30],answer;
 
-printf("Intput a :");scanf("%d",&a);
-printf("Intput b :");scanf("%d",&a);
-
-if(a>b)
+printf("Who goes to heaven and who goes to hell?\n\n");
+printf("What is your Grim Reaper name?: ");scanf("%s",&name);
+printf("so your name is %s?\n",name);
+scanf("%s",&answer);
+if((answer=='Y')||(answer=='y'))
 {
-    printf("The greater number between %d and %d is %d \n",a,b,a);
+    printf("Great, let's get started!");
 }
 else
 {
-    if(a==0)
-    {
-    printf("Both numbers are equal \n");    
-    }
+    printf("If you cannot decide then you don't deserve to be a Grim Reaper.\n");
+    printf("GAME OVER");
 }
+
+
+
 
 return 0;
 
