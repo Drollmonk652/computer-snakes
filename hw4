@@ -1,0 +1,46 @@
+/*Julio Gonzalez 2/13/20 HW4*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+
+double a,b,c,bc,d,x1,x2;
+
+printf("PROGRAM TO CALULATE ROOT(S) of POLYNOMIAL\n");
+
+printf("ax^2 + bx + c \n");
+printf("Enter a :");scanf("%lf",&a);
+printf("Enter b :");scanf("%lf",&b);
+printf("Enter c :");scanf("%lf",&c);
+
+d=b*b-4*a*c;
+bc=2*a;
+x1=(-b-sqrt(d))/bc;
+x2=(-b+sqrt(d))/bc;
+
+if((a==0)||(b==0)||(c==0))
+{
+    printf("It is not a quadratic.");
+}
+else
+{
+    if(d==0)
+    {
+        printf("The discriminant of the polynomial is %.3f",d);
+    }
+    else
+    {
+        if(d<0)
+        {
+            printf("The discriminant of the polynomial is %.3f \n",d);
+            printf("Imanginary roots");
+        }
+    }
+}
+
+return 0;
+
+}
+
