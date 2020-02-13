@@ -1,0 +1,29 @@
+/*Julio Gonzalez 2/13/20*/
+/*and && or || not !*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+
+int a,b,c;
+
+printf("Intput a :");scanf("%d",&a);
+printf("Intput b :");scanf("%d",&a);
+
+if(a>b)
+{
+    printf("The greater number between %d and %d is %d \n",a,b,a);
+}
+else
+{
+    if(a==0)
+    {
+    printf("Both numbers are equal \n");    
+    }
+}
+
+return 0;
+
+}
