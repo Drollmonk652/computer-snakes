@@ -92,6 +92,14 @@ bc=2*a;
 x1=(-b-sqrt(d))/bc;
 x2=(-b+sqrt(d))/bc;
 
+if(d<0)
+{
+    printf("The expression is: -%.1f(+/-)sqrt(%.1f*%.1f-4*%.1f*%.1f)n",b,b,b,a,c);
+}
+else
+{
+    printf("Error in this term");
+}
 
     return 0;
 }
