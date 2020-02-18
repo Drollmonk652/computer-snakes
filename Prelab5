@@ -1,15 +1,17 @@
 /*Julio Gonzalez Prelab5*/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 /*Question 1*/
 int main(void)
 {
+/*    
 float A,B,C;
 printf("Enter A:");scanf("%f",&A);
 printf("\nEnter B:");scanf("%f",&B);
-    if((A<0.0001)&&(B<0.0001))
+    if((abs(A)<0.0001)&&(abs(B)<0.0001))
     {
         printf("True");
     }
@@ -17,29 +19,42 @@ printf("\nEnter B:");scanf("%f",&B);
     {
         printf("False");
     }
-/*Question 2
-    if((A>0.0001)&&(B<0.0001))
+/*Question 2*/
+/*
+float A,B,C;
+printf("Enter A:");scanf("%f",&A);
+printf("\nEnter B:");scanf("%f",&B);
+    if((A<0.0001)&&(abs(B)>0.0001))
     {
         printf("True");
-    }
-/*Question 3
-    if(((B^2)-4*A*C)>0)
-    {
-        printf("True");
-    }
-    return 0;
-}
-/*Question 4
-    if((A>0.0001)&&(B>0.0001))
-    {
-        printf("Error");
     }
     else
     {
-        printf("Correct");
+        printf("False");
     }
-/*Question 5
-    if((A>0.0001)&&(B>0.0001))
+*/
+/*Question 3*/
+/*
+float A,B,C,v;
+printf("Enter A:");scanf("%f",&A);
+printf("Enter B:");scanf("%f",&B);
+printf("Enter C:");scanf("%f",&C);
+v=(B*B)-4.0*A*C;
+if(v<0)
+    {
+        printf("True");
+    }
+    else
+    {
+        printf("False");
+    }
+ */ 
+/*Question 4*/
+/*
+float A,B,C;
+printf("Enter A:");scanf("%f",&A);
+printf("Enter B:");scanf("%f",&B);
+    if((abs(A)<0.0001)&&(abs(B)<0.0001))
     {
         printf("Error");
     }
@@ -48,5 +63,35 @@ printf("\nEnter B:");scanf("%f",&B);
         printf("Correct");
     }
 */
+/*Question 5*/
+/*
+float a,b,c,bc,d,x1,x2;
+printf("Enter A:");scanf("%f",&a);
+printf("Enter B:");scanf("%f",&b);
+printf("Enter C:");scanf("%f",&c);
+d=b*b-4*a*c;
+bc=2*a;
+x1=(-b-sqrt(d))/bc;
+x2=(-b+sqrt(d))/bc;
+    if(d>0)
+    {
+        printf("x1:%f",x1);
+    }
+    else
+    {
+        printf("Error");
+    }
+*/
+/*Question 6*/
+float a,b,c,bc,d,x1,x2;
+printf("Enter A:");scanf("%f",&a);
+printf("Enter B:");scanf("%f",&b);
+printf("Enter C:");scanf("%f",&c);
+d=b*b-4*a*c;
+bc=2*a;
+x1=(-b-sqrt(d))/bc;
+x2=(-b+sqrt(d))/bc;
+
+
     return 0;
 }
