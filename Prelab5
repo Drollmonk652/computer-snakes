@@ -1,0 +1,52 @@
+/*Julio Gonzalez Prelab5*/
+
+#include <stdio.h>
+#include <math.h>
+
+/*Question 1*/
+int main(void)
+{
+float A,B,C;
+printf("Enter A:");scanf("%f",&A);
+printf("\nEnter B:");scanf("%f",&B);
+    if((A<0.0001)&&(B<0.0001))
+    {
+        printf("True");
+    }
+    else
+    {
+        printf("False");
+    }
+/*Question 2
+    if((A>0.0001)&&(B<0.0001))
+    {
+        printf("True");
+    }
+/*Question 3
+    if(((B^2)-4*A*C)>0)
+    {
+        printf("True");
+    }
+    return 0;
+}
+/*Question 4
+    if((A>0.0001)&&(B>0.0001))
+    {
+        printf("Error");
+    }
+    else
+    {
+        printf("Correct");
+    }
+/*Question 5
+    if((A>0.0001)&&(B>0.0001))
+    {
+        printf("Error");
+    }
+    else
+    {
+        printf("Correct");
+    }
+*/
+    return 0;
+}
