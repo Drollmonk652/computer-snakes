@@ -7,9 +7,23 @@ int main()
 {
   double a,b,c,d,x,qf,bc,x1,x2,xi,x1i,x2i,xr,r1;
     
+    printf("Program to calculate root(s) of polynomial\n");
+    printf("ax^2+bx+c\n\n");
+    printf("Enter a, b, c, (separated by space):");scanf("%lf %lf %lf",&a,&b,&c);
+    
+    d=(b*b)-(4.0*a*c);
+    bc=2*a;
+    x1=(-b+sqrt(d))/bc;
+    x2=(-b-sqrt(d))/bc;
+    
+    x=-c/b;
+    xr=-b/(2*a);
+    x1i=sqrt(4*a*c-b*b)/bc;
+    x2i=sqrt(4*a*c)/bc;
+    
    if(a==0)
    {
-       printf("It is not a quadratic\n");
+       printf("It is not a quadratic\n\n");
        printf("x = %4.3f",x);
    }
    else
@@ -23,19 +37,32 @@ int main()
            if(d==0)
            {
                printf("The discriminant of the polynomial is %.3f\n",d);
-               printf("x = %4.3f",x);
+               printf("x = %4.3f",xr);
            }
            else
            {
-               if(d>0)
+               if((a!=0)&&(b!=0)&&(d>0))
                {
                     printf("The discriminant of the polynomial is %.3f\n",d);
+                    printf("x1= %5.3f\n",x1);
+                    printf("x2= %4.3f",x2);
                }
                else
                {
-                   if(d<0)
+                   if((a!=0)&&(b!=0)&&(d<0))
                    {
-                      printf("The discriminant of the polynomial is %.3f\n",d); 
+                      printf("The discriminant of the polynomial is %.3f\n",d);
+                      printf("x1= %.3f + %.3f\i \n",xr,x1i);
+                      printf("x2= %.3f - %.3f\i",xr,x1i); 
+                   }
+                   else
+                   {
+                       if((a!=0)&&(b==0)&&(d<0))
+                       {
+                          printf("The discriminant of the polynomial is %.3f\n",d);
+                          printf("x1= %7.3f i\n",x2i);
+                          printf("x2= -%6.3f i",x2i);
+                       }
                    }
                }
            }
