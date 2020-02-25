@@ -6,7 +6,7 @@
 int main()
 {
 
-int i,n_count,x,y,n,n1;
+int i,n_count,y,n1,k;
 n_count=5;
 n1=1;
 
@@ -25,13 +25,24 @@ for(n_count=0;n_count<n1;n_count++)
 }
 */
 /*Question 3*/
-for(i=0;i<n_count;i++)
+/*
+i=0;
+y=2;
+do
 {
-    
-}
+  printf(" %d",i);
+  i++;
+}while(i<=y);
+*/
 /*Question 4*/
+/*
+while(k<1 || k>5)
+{
+}*/
 /*Question 5*/
-
+char x;
+printf("Enter number:");scanf("%c",&x);
+int n=x-'0';
 
 return 0;
 
