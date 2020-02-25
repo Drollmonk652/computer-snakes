@@ -1,0 +1,20 @@
+/*Julio Gonzalez 2/25/20 Lab6*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int num;
+    float x, sum, mean, value, pe;
+
+    printf("Please wnter the total numbers of calue you want to input (between 2 and 10): ");scanf("%d \n",&num);
+    printf("The total numbers of value should be between 2 and 10.\n");
+    printf("Please re-input the numbers of value: ");
+    printf("");
+    printf("");
+    printf("");
+    printf("");
+    
+    return 0;
+}
