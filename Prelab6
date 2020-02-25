@@ -1,0 +1,38 @@
+/*Julio Gonzalez lab5 2/18/20*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+
+int i,n_count,x,y,n,n1;
+n_count=5;
+n1=1;
+
+/*Question 1*/
+
+/*for(i=0;i<n_count;i++)
+{
+    printf("%d ", i);
+}
+*/
+/*Question 2*/
+/*
+for(n_count=0;n_count<n1;n_count++)
+{
+    printf("%d ", n_count);
+}
+*/
+/*Question 3*/
+for(i=0;i<n_count;i++)
+{
+    
+}
+/*Question 4*/
+/*Question 5*/
+
+
+return 0;
+
+}
