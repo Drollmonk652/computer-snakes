@@ -6,7 +6,7 @@
 int main()
 {
     int num,d;
-    float x, sum=0, mean, value, pe;
+    float x, sum=0, mean, value, kv, pe;
     char answer;
     x=1;
     printf("Please enter the total numbers of calue you want to input (between 2 and 10): ");scanf("%d",&num);
@@ -21,21 +21,19 @@ int main()
         printf("Data - %d :",d); scanf("%f", &value);
         sum = sum + value;
     }
-    printf("The mean of the datat that you have input is %.3f \n\n",sum/num);
+    mean=sum/num;
+    printf("The mean of the datat that you have input is %.3f \n\n",mean);
     
-    while(answer!=y){
-    printf("Is there a known value? (hit ""y"" of ""Y"" for yes and any key for no):");
-    scanf("%c",&yes);
+    printf("Is there a known value?(hit \"y\" of \"Y\" for yes and any key for no):");scanf(" %c",&answer);
+    
+    if(answer=='y' || answer=='Y'){
+    printf("Please enter the known value:");scanf("%f",&kv);
+    pe=((mean-kv)/kv)*100;
+    printf("The percent error is %.3f",pe);
     }
-
-    
- 
-    /*
-    printf("Please enter the known value:");
-    printf("The percent error is");
-    printf("Do you want to input another set of data? (hit ""y"" of ""Y"" for yes and any key for no)");
-    */
-
+    else
+    {
+    }
     
     return 0;
 }
