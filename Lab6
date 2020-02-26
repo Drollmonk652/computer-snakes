@@ -5,27 +5,36 @@
 
 int main()
 {
-    int num;
+    int num,d;
     float x, sum=0, mean, value, pe;
-
-    printf("Please wnter the total numbers of calue you want to input (between 2 and 10): ");scanf("%d \n",&num);
-    while(2<=num<=10)
-    {
-    printf("Please re-input the numbers of value: ");
+    char answer;
+    x=1;
+    printf("Please enter the total numbers of calue you want to input (between 2 and 10): ");scanf("%d",&num);
+    
+    while(num<2 || num>10){
+    printf("Plese re-input the numbers of the value:");scanf("%d",&num);
     }
-    printf("Plese enter your data");
-    printf("data - 1 :");
-    printf("data - 2 :");
-    printf("data - 3 :");
-    printf("data - 4 :");
-    printf("data - 5 :");
-
-    printf("The mean of the datat that you have input is");
+    
+    printf("Please enter your data:\n");
+    for (d=1;d<=num;d++)
+    {
+        printf("Data - %d :",d); scanf("%f", &value);
+        sum = sum + value;
+    }
+    printf("The mean of the datat that you have input is %.3f \n\n",sum/num);
+    
+    while(answer!=y){
     printf("Is there a known value? (hit ""y"" of ""Y"" for yes and any key for no):");
+    scanf("%c",&yes);
+    }
+
+    
+ 
+    /*
     printf("Please enter the known value:");
     printf("The percent error is");
     printf("Do you want to input another set of data? (hit ""y"" of ""Y"" for yes and any key for no)");
-
+    */
 
     
     return 0;
