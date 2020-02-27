@@ -1,19 +1,33 @@
 /*Julio Gonzalez hw6*/
 
-include <stdio.h>
-include <math.h>
+#include <stdio.h>
+#include <math.h>
 
 int main()
 {
 
-int a,b,c,x;
+int a,b,c,x,xi,xf;
+float step;
 
 printf("Program to display table x and y on \n");
 printf("a quadratic equation y = ax^2 + bx + c \n\n");
-printf("Please enter a, b and c separated by space : ");scanf(" %d %d %d ",&a,&b,&c);
+printf("Please enter a, b and c separated by space : ");scanf("%d %d %d",&a,&b,&c);
 printf("Please enter the iteration info \n");
 
-while()
+printf("x initial:");scanf(" %d",&xi);
+printf("x final:");scanf(" %d",&xf);
+while(xf<xi){
+    printf("x final has to be bigger than x initial\n");
+    printf("Please re-enter x final:");scanf(" %d",&xf);
+}
+printf("step(min 0.1): ");scanf(" %f",&step);
+while(step<0.1){
+    printf("step can't be less than 0.1\n");
+    printf("Please re-enter step(min 0.1):");scanf(" %f",&step);
+
+}
+
+
 
 
 return 0;
