@@ -6,28 +6,32 @@
 int main()
 {
 
-int a,b,c,x,xi,xf;
-float step;
+double step,a,b,c,d,bc,x,xi,xf,x1,x2;
 
 printf("Program to display table x and y on \n");
 printf("a quadratic equation y = ax^2 + bx + c \n\n");
-printf("Please enter a, b and c separated by space : ");scanf("%d %d %d",&a,&b,&c);
+printf("Please enter a, b and c separated by space : ");scanf("%lf %lf %lf",&a,&b,&c);
 printf("Please enter the iteration info \n");
 
-printf("x initial:");scanf(" %d",&xi);
-printf("x final:");scanf(" %d",&xf);
-while(xf<xi){
+printf("x initial:");scanf(" %lf",&xi);
+printf("x final:");scanf(" %lf",&xf);
+while(xf<=xi){
     printf("x final has to be bigger than x initial\n");
-    printf("Please re-enter x final:");scanf(" %d",&xf);
+    printf("Please re-enter x final:");scanf(" %lf",&xf);
 }
-printf("step(min 0.1): ");scanf(" %f",&step);
+printf("step(min 0.1): ");scanf(" %lf",&step);
 while(step<0.1){
     printf("step can't be less than 0.1\n");
-    printf("Please re-enter step(min 0.1):");scanf(" %f",&step);
-
+    printf("Please re-enter step(min 0.1):");scanf(" %lf",&step);
 }
 
-
+    d=(b*b)-(4.0*a*c);
+    bc=2*a;
+    x1=(-b+sqrt(d))/bc;
+    x2=(-b-sqrt(d))/bc;
+    
+printf("    x     y");
+for()
 
 
 return 0;
