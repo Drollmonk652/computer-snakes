@@ -6,7 +6,7 @@
 int main()
 {
 
-double step,a,b,c,d,bc,x,xi,xf,x1,x2;
+double step,a,b,c,d,bc,x,xi,xf,x1,x2,y;
 
 printf("Program to display table x and y on \n");
 printf("a quadratic equation y = ax^2 + bx + c \n\n");
@@ -25,14 +25,12 @@ while(step<0.1){
     printf("Please re-enter step(min 0.1):");scanf(" %lf",&step);
 }
 
-    d=(b*b)-(4.0*a*c);
-    bc=2*a;
-    x1=(-b+sqrt(d))/bc;
-    x2=(-b-sqrt(d))/bc;
     
-printf("    x     y");
-for()
-
+printf("    x     y \n");
+for(x=xi;x<=xf;x+=step)
+{
+    printf(" %.2f %.2f \n",x,a*(x*x)+b*x+c);
+}
 
 return 0;
 }
