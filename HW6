@@ -6,31 +6,32 @@
 int main()
 {
 
-double step,a,b,c,d,bc,x,xi,xf,x1,x2,y;
+    double step,a,b,c,d,bc,x,xi,xf,x1,x2,y;
+    char answer;
 
-printf("Program to display table x and y on \n");
-printf("a quadratic equation y = ax^2 + bx + c \n\n");
-printf("Please enter a, b and c separated by space : ");scanf("%lf %lf %lf",&a,&b,&c);
-printf("Please enter the iteration info \n");
-
-printf("x initial:");scanf(" %lf",&xi);
-printf("x final:");scanf(" %lf",&xf);
-while(xf<=xi){
-    printf("x final has to be bigger than x initial\n");
-    printf("Please re-enter x final:");scanf(" %lf",&xf);
-}
-printf("step(min 0.1): ");scanf(" %lf",&step);
-while(step<0.1){
-    printf("step can't be less than 0.1\n");
-    printf("Please re-enter step(min 0.1):");scanf(" %lf",&step);
-}
-
+    printf("Program to display table x and y on \n");
+    printf("a quadratic equation y = ax^2 + bx + c \n\n");
+    printf("Please enter a, b and c separated by space : ");scanf("%lf %lf %lf",&a,&b,&c);
+    do{
+        printf("Please enter the iteration info \n");
+        printf("x initial: ");scanf("%lf",&xi);
+        printf("\nx final: ");scanf("%lf",&xf);
+        while(xf<=xi){
+            printf("x final has to be bigger than x initial\n");
+            printf("Please re-enter x final:");scanf("%lf",&xf);
+        }
+        printf("step(min 0.1): ");scanf("%lf",&step);
+        while(step<0.1){
+            printf("step can't be less than 0.1\n");
+            printf("Please re-enter step(min 0.1):");scanf(" %lf",&step);
+        }
+        printf("    x     y \n");
+        for(x=xi;x<=xf;x+=step)
+        {
+            printf(" %.2f %.2f \n",x,a*(x*x)+b*x+c);
+        }
+    printf("Do you want another range? ");scanf(" %c",&answer);
+    }while(answer=='y' || answer=='Y');
     
-printf("    x     y \n");
-for(x=xi;x<=xf;x+=step)
-{
-    printf(" %.2f %.2f \n",x,a*(x*x)+b*x+c);
-}
-
-return 0;
+    return 0;
 }
