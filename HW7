@@ -1,0 +1,25 @@
+/*Julio Gonzalez HW7*/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+printf("A={1.5,1.24,2.00,-5.20,0.96}\n");
+printf("B={0.25,3.30,1.40,0.00,-5.70}\n\n");
+printf("Please choose a process :\n");
+printf("1. Max value and min calue of A\n");
+printf("2. Max value and min value of B\n");
+printf("3. Dot product of A and B\n");
+printf("4. The value of known subscript\n");
+printf("5. Exit\n");
+printf("Your choice : ");
+printf("Max value of A is \n");
+printf("Min calue of A is \n");
+printf("Do you want another process (Y/N)?");
+printf("Dot product of A and B is");
+printf("Which vector (A or B) ?");
+printf(""BYE!);
+
+return 0;
+}
