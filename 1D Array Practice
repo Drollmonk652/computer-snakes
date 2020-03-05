@@ -4,6 +4,7 @@ Julio Gonzalez 3/5/20
 */
 
 #include <stdio.h>
+#define Max 100
 
 int main()
 {
@@ -21,15 +22,17 @@ int main()
     }
     printf("The %d element is %.2lf \n",5,y[4]);
     printf("The addition of the first and sixth element is %.2lf ",y[0]+y[5]);
-    */
     printf("The 20th element is %.2lf \n",y[20]);
-
-    /*
-    for(i=1;i<6;i++)
+    int sum=0,j;
+    int x2[6]={3,5,4,6,-4,-10};
+    for(j=1;j<6;j++)
     {
-        sum+=x[i-1];
+        sum+=x2[j-1];
         printf("%d \n",sum);
     }
     */
+    
+    int z[Max]={};
+    
     return 0;
 }
