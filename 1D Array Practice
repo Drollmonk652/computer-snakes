@@ -1,0 +1,35 @@
+/*
+Julio Gonzalez 3/5/20
+1D Array Practice
+*/
+
+#include <stdio.h>
+
+int main()
+{
+    double y[10]={4.4,-5.1,6.2,7.3,5.1,4.14,2.3,1.6,4.3,9.12};
+    int x[100]={0};
+    int i;
+    for(i=0;i<100;i++)
+    {
+        x[i]=0;
+    }
+    /*
+    for(i=0;i<10;i++)
+    {
+    printf(" %7.2lf \n",y[i]);
+    }
+    printf("The %d element is %.2lf \n",5,y[4]);
+    printf("The addition of the first and sixth element is %.2lf ",y[0]+y[5]);
+    */
+    printf("The 20th element is %.2lf \n",y[20]);
+
+    /*
+    for(i=1;i<6;i++)
+    {
+        sum+=x[i-1];
+        printf("%d \n",sum);
+    }
+    */
+    return 0;
+}
