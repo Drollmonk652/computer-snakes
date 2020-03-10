@@ -4,10 +4,10 @@
 #define N 10
 int main()
 {
-    int num;
+    int num,value,ac,set;
     char answer;
-    double array[N]={0},sum,mean,kv,pe,sd;
-    
+    double array[N]={0},sum,mean,kv,pe,sd,var;
+
     printf("Enter number of data points(between 2 and 10): ");scanf(" %d",&num);
     while(num<2 || num>10)
     {
@@ -15,36 +15,43 @@ int main()
     }
     sum=0;
     int i;
+    value=1;
     
     for(i=0;i<num;i++) 
     {
-        printf("Enter value: ");scanf(" %lf",&array[i]);
+        printf("Temperature value #%d: ",value);scanf(" %lf",&array[i]);
+        value++;
         sum+=array[i];
     }
     mean=sum/num;
-    printf("Mean of data is: %.2lf \n",mean);
+    printf("\nMean of data is: %.4lf \n",mean);
     for(i=0;i<num;i++)
     {
-        sd=sqrt((1.0/(array[i]-1))*sum);
+        var+=(array[i]-mean)*(array[i]-mean);
     }
-    printf("The standard deviation is: %.2lf\n",sd);
+    sd=sqrt((1.0/(num-1)*var));
+    printf("The standard deviation is: %.7lf\n\n",sd);
     
     int process;
     printf("Please choose a process :\n");
     printf("1. Subscriopt review\n");
     printf("2. Calculate percent error\n");
-    printf("3. Quite\n");()
+    printf("3. Quite\n");
     do
     {
         printf("Your choice : ");scanf(" %d",&process);
-        switch(proces)
+        switch(process)
         {
             
             case 1 :
                 printf("Subscriopt review \n");
+                printf("Which term in the set do you wish to view (0 to %d): ",num-1);scanf(" %d",&set);
+                printf("The number of the set is: %.2lf\n",array[set]);
                 break;
             case 2 :
-                printf("Calculate percent error \n");
+                printf("Please input the known value for the right Temperature: ");scanf(" %lf",&kv);
+                pe=((mean-kv)/kv)*100;
+                printf("The percent error is %.2lf%\n",pe);
                 break;
             case 3 :
                 printf("BYE!");
