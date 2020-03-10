@@ -1,0 +1,31 @@
+/*Julio Gonzalez 3/10/20 lab8*/
+#include <stdio.h>
+#include <math.h>
+#define N 10
+int main()
+{
+    int num;
+    double array[N]={0},sum,mean,kv,pe,sd;
+    
+    printf("Enter number of data points(between 2 and 10): ");scanf(" %d",&num);
+    while(num<2 || num>10)
+    {
+        printf("Please enter a number between 2 and 10: ");scanf(" %d",&num);
+    }
+    sum=0;
+    int i;
+    
+    for(i=0;i<num;i++) 
+    {
+        printf("Enter value: ");scanf(" %lf",&array[i]);
+        sum+=array[i];
+    }
+    mean=sum/num;
+    printf("Mean of data is: %.2lf \n",mean);
+    for(i=0;i<num;i++)
+    {
+        sd=sqrt((1.0/(array[i]-1))*sum);
+    }
+    printf("The standard deviation is: %.2lf\n",sd);
+    return 0;
+}
