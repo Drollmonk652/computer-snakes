@@ -7,13 +7,19 @@ int main()
 double a[10]={0};
 /*Step 2*/
 int n;
-double temp[n];
+double temp[5]={0};
 /*Step 3*/
 double input,T_sum;
-for(n=0)
+for(n=0;n<5;n++)
 {
-
-sum+=input;
+    temp[n]=0;
 }
+/*Step 4*/
+for(n=0;n<5;n++)
+{
+    printf("Enter element value: ");scanf(" %lf",&temp[n]);
+    T_sum+=temp[n];
+}
+/*Step 5*/
 return 0;
 }
