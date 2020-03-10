@@ -21,5 +21,8 @@ for(n=0;n<5;n++)
     T_sum+=temp[n];
 }
 /*Step 5*/
+printf("Enter which sub you want to view: ");scanf(" %d",&n);
+printf("The %d element is %.2lf \n",n,temp[n]);
 return 0;
 }
+
