@@ -1,0 +1,19 @@
+/*Julio Gonzalez 3/9/20 Prelab 8*/
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+/*Step one*/
+double a[10]={0};
+/*Step 2*/
+int n;
+double temp[n];
+/*Step 3*/
+double input,T_sum;
+for(n=0)
+{
+
+sum+=input;
+}
+return 0;
+}
