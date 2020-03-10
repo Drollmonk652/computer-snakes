@@ -5,6 +5,7 @@
 int main()
 {
     int num;
+    char answer;
     double array[N]={0},sum,mean,kv,pe,sd;
     
     printf("Enter number of data points(between 2 and 10): ");scanf(" %d",&num);
@@ -27,5 +28,34 @@ int main()
         sd=sqrt((1.0/(array[i]-1))*sum);
     }
     printf("The standard deviation is: %.2lf\n",sd);
+    
+    int process;
+    printf("Please choose a process :\n");
+    printf("1. Subscriopt review\n");
+    printf("2. Calculate percent error\n");
+    printf("3. Quite\n");()
+    do
+    {
+        printf("Your choice : ");scanf(" %d",&process);
+        switch(proces)
+        {
+            
+            case 1 :
+                printf("Subscriopt review \n");
+                break;
+            case 2 :
+                printf("Calculate percent error \n");
+                break;
+            case 3 :
+                printf("BYE!");
+                break;
+            default:
+                printf("\nNot a choice\n");
+                answer='n';
+                break;
+        }
+        printf("Do you want another process (Y/N)?  ");scanf(" %c",&answer);
+    }while(answer=='y'||answer=='Y');
+    
     return 0;
 }
