@@ -5,9 +5,13 @@
 
 int main()
 {
-    char answer;
-    int process;
+    char answer,cs4;
+    int process,i,count;
+    float A[5]={1.5,1.24,2.00,-5.20,0.96},B[5]={0.25,3.30,1.40,0.00,-5.70};
+    float product,sum;
+    product=0;
 
+    
     printf("A={1.5,1.24,2.00,-5.20,0.96}\n");
     printf("B={0.25,3.30,1.40,0.00,-5.70}\n\n");
 
@@ -27,15 +31,20 @@ int main()
         {
 
             case 1 :
-                printf("Max value of A is \n");
-                printf("Min value of A is \n");
+                printf("Max value of A is %.2f \n", A[2]);
+                printf("Min value of A is %.2f \n", A[3]);
                 break;
             case 2 :
-                printf("Max value of B is \n");
-                printf("Min value of B is \n");
+                printf("Max value of B is %.2f \n",B[1]);
+                printf("Min value of B is %.2f \n",B[4]);
                 break;
             case 3 :
-                printf("Dot product of A and B is \n");
+                for(i=0;i<5;i++)
+                {
+                 sum=A[i]*B[i];
+                 product+=sum;
+                }
+                printf("Dot product of A and B is %.2f \n", product);
                 break;
             case 4 :
                 printf("Which vector (A or B) ?");
