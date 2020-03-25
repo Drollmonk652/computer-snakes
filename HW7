@@ -5,8 +5,8 @@
 
 int main()
 {
-    char answer,cs4;
-    int process,i,sub;
+    char answer,cs4,vector;
+    int process,i,subscript;
     float A[5]={1.5,1.24,2.00,-5.20,0.96},B[5]={0.25,3.30,1.40,0.00,-5.70};
     float product,sum;
     product=0;
@@ -47,24 +47,25 @@ int main()
                 printf("Dot product of A and B is %.2f \n", product);
                 break;
             case 4 :
-                printf("Which vector (A or B) ? ");scanf(" %c",&cs4);
-                switch(cs4)
+                printf("Which vector (A or B) ? "); scanf(" %c", &vector);
+                while(vector != 'A' && vector != 'B')
                 {
-                    case'A':
-                    do
-                    {
-                        printf("Enter subscript (0-4): ");scanf(" %d",sub);
-                    }while(sub<=0||sub>=4);
-                    printf("A[%d] = %.2f",sub,A[sub]);
-                    break;
-                    case'B':
-                    do
-                    {
-                        printf("Enter subscript (0-4): ");scanf(" %d",sub);
-                    }while(sub<=0||sub>=4);
-                    printf("B[%d] = %.2f",sub,B[sub]);
-                    break;
+                    printf("\nPlease choose A or B : ");
+                    scanf(" %c", &vector);
+               }
+                 
+                printf("Enter subscript (0-4): ");
+                scanf("%d", &subscript);
+                while(subscript !=0 && subscript !=1 && subscript !=2 && subscript !=3 && subscript !=4)
+                {
+                    printf("Enter subscipt (0-4): ");
+                    scanf("%d", &subscript);
                 }
+                
+                if(vector == 'A')
+                    printf("A[%d] = %5.2lf \n", subscript, A[subscript]);
+                else
+                    printf("B[%d] = %5.2lf \n", subscript, B[subscript]);
                 break;
             case 5 :
                 printf("BYE!");
