@@ -6,7 +6,7 @@
 int main()
 {
     char answer,cs4;
-    int process,i,count;
+    int process,i,sub;
     float A[5]={1.5,1.24,2.00,-5.20,0.96},B[5]={0.25,3.30,1.40,0.00,-5.70};
     float product,sum;
     product=0;
@@ -47,10 +47,24 @@ int main()
                 printf("Dot product of A and B is %.2f \n", product);
                 break;
             case 4 :
-                printf("Which vector (A or B) ?");
-                printf("Enter subscript (0-4): ");
-                printf("Enter subscript (0-4): ");
-                printf("A[4] = ");
+                printf("Which vector (A or B) ? ");scanf(" %c",&cs4);
+                switch(cs4)
+                {
+                    case'A':
+                    do
+                    {
+                        printf("Enter subscript (0-4): ");scanf(" %d",sub);
+                    }while(sub<=0||sub>=4);
+                    printf("A[%d] = %.2f",sub,A[sub]);
+                    break;
+                    case'B':
+                    do
+                    {
+                        printf("Enter subscript (0-4): ");scanf(" %d",sub);
+                    }while(sub<=0||sub>=4);
+                    printf("B[%d] = %.2f",sub,B[sub]);
+                    break;
+                }
                 break;
             case 5 :
                 printf("BYE!");
