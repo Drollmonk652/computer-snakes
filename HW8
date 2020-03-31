@@ -3,20 +3,31 @@
 #include <math.h>
 int main()
 {
-printf("Program to process mxn matrix M\n");
-printf("=========================================\n");
-printf("Please enter the row width m (1-5)    :\n");
-printf("Please enter the column width n (1-5) :\n\n");
-printf("Matrix size of M is % x % \n\n",);
-printf("Enter the M values : \n");
+    int i,j=0,m,n,Y,X;
+    float y,x,matrix[Y][X];
+    printf("Program to process mxn matrix M\n");
+    printf("=========================================\n");
+    do
+    {
+        printf("Please enter the row width m (1-5)  :");scanf(" %d",&m);
+    }while(m<=1||m>=5);
+    do
+    {
+        printf("Please enter the column width n (1-5) :");scanf(" %d",&n);
+    }while(n<=1||n>=5);
+    printf("\nMatrix size of M is  %dx%d \n\n",m,n);
+    printf("Enter the M values :\n");
 
-printf("M[0][0] = ");
+    Y=n;
+    X=m;
 
-printf("Please choose an operation.\n");
-printf("1. Just display the matrix\n");
-printf("2. Display the matrix and its transpose\\n");
-printf("3. Find max value of each column\n");
-printf("4. Exit\n");
-printf("Your choice (1 - 4)\n");
-return 0;
+    
+    printf("M[%d][%d] = ", i, j);
+    printf("Please choose an operation.\n");
+    printf("1. Just display the matrix\n");
+    printf("2. Display the matrix and its transpose\\n");
+    printf("3. Find max value of each column\n");
+    printf("4. Exit\n");
+    printf("Your choice (1 - 4)\n");
+    return 0;
 }
