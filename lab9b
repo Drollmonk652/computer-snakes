@@ -1,0 +1,29 @@
+/*Julio G lab9b*/
+#include <stdio.h>
+#include <math.h>
+#define NROWS 2
+#define NCOLS 7
+int main()
+{
+    double wavedata[NROWS][NCOLS]={
+        {93.4,100.1,99.8,87.0,88.5,101,97.6},
+        {100.2,101.1,97.5,102.4,98.9,100.0,101.5}
+    };
+    int i,j,count;
+    double perdiff,mean;
+    for(i=0;i<NROWS;i++){
+        printf("Data set");
+        for(j=0;j<NCOLS;j++){
+        printf(" %4.1lf ",wavedata[i][j]);
+        }
+        printf("\n");
+    }
+    for(i=0;i<NROWS;i++){
+        printf("Means");
+        for(j=0;j<NCOLS;j++){
+        printf(" %4.1lf ",wavedata[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
