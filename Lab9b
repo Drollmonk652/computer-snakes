@@ -1,3 +1,5 @@
+/*Julio G lab9b*/
+#include <stdio.h>
 #include <math.h>
 #define NROWS 2
 #define NCOLS 7
@@ -18,15 +20,27 @@ int main()
         count++;
     }
     
-
-    for(i=0;i<2;i++)
-    {
+    for(i=0;i<1;i++){
+        for(j=0;j<NCOLS;j++){
         sum+=wavedata[i][j];
+        }
+        mean1=sum/7;
+        printf("Mean #1 : %.2lf",mean1);
+        count++;
     }
-    printf("Mean #2 : %.1lf \n",sum);
-    
-    
+    sum=0;
+    printf("\n");
+
+    for(j=0;j<1;j++){
+        for(i=0;i<NCOLS;i++){
+        sum+=wavedata[i][j];
+        }
+        mean1=sum/2;
+        printf("Mean #2 : %.2lf",mean1);
+        count++;
+    }
+
     perdiff=(mean1-mean2)/(0.5*(mean1+mean2))*100;
-    printf("Percent Difference = %.2lf",perdiff);
+    printf("\nPercent Difference = %.2lf%",perdiff);
     return 0;
 }
