@@ -19,28 +19,22 @@ int main()
         printf("\n");
         count++;
     }
-    
-    for(i=0;i<1;i++){
-        for(j=0;j<NCOLS;j++){
-        sum+=wavedata[i][j];
-        }
-        mean1=sum/7;
-        printf("Mean #1 : %.2lf",mean1);
-        count++;
+ 
+    for(j=0;j<NCOLS;j++){
+        sum+=wavedata[0][j];
     }
-    sum=0;
+    mean1=sum/NCOLS;
+    printf("Mean #1 : %.2lf",mean1);
     printf("\n");
-
-    for(j=0;j<1;j++){
-        for(i=0;i<NCOLS;i++){
-        sum+=wavedata[i][j];
-        }
-        mean1=sum/2;
-        printf("Mean #2 : %.2lf",mean1);
-        count++;
+    sum=0;
+    
+    
+    for(i=0;i<2;i++){
+        mean2+=wavedata[i][j];
     }
+    printf("Mean #2 : %.2lf",mean2);
 
-    perdiff=(mean1-mean2)/(0.5*(mean1+mean2))*100;
-    printf("\nPercent Difference = %.2lf%",perdiff);
+    perdiff=(mean1-mean2)/(0.5*(mean1+mean2))*100*-1;
+    printf("\nPercent Difference = %.2lf%% ",perdiff);
     return 0;
 }
