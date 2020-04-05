@@ -3,8 +3,7 @@
 #include <math.h>
 int main()
 {
-    int i,j=0,m,n,Y,X;
-    float y,x,matrix[Y][X];
+    int i,j=0,m,n,Y,X,c=0;
     printf("Program to process mxn matrix M\n");
     printf("=========================================\n");
     do
@@ -17,17 +16,21 @@ int main()
     }while(n<=1||n>=5);
     printf("\nMatrix size of M is  %dx%d \n\n",m,n);
     printf("Enter the M values :\n");
-
     Y=n;
     X=m;
-
-    
-    printf("M[%d][%d] = ", i, j);
+    float y,x,matrix[Y][X];
+    for(i=0;i<m;i++){
+        for(j=0;j<n;j++){
+            printf("M[%d][%d] = ",i,j);scanf(" %f",&matrix[i][j]);
+        }
+    } 
+    do{
     printf("Please choose an operation.\n");
     printf("1. Just display the matrix\n");
     printf("2. Display the matrix and its transpose\\n");
     printf("3. Find max value of each column\n");
     printf("4. Exit\n");
     printf("Your choice (1 - 4)\n");
+    }
     return 0;
 }
