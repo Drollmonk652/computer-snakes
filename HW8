@@ -3,7 +3,8 @@
 #include <math.h>
 int main()
 {
-    int i,j=0,m,n,Y,X,c=0;
+    int i,j=0,m,n,Y,X,c=0,process;
+    char answer;
     printf("Program to process mxn matrix M\n");
     printf("=========================================\n");
     do
@@ -25,12 +26,57 @@ int main()
         }
     } 
     do{
-    printf("Please choose an operation.\n");
-    printf("1. Just display the matrix\n");
-    printf("2. Display the matrix and its transpose\\n");
-    printf("3. Find max value of each column\n");
-    printf("4. Exit\n");
-    printf("Your choice (1 - 4)\n");
-    }
+        printf("Please choose an operation.\n");
+        printf("1. Just display the matrix\n");
+        printf("2. Display the matrix and its transpose\n");
+        printf("3. Find max value of each column\n");
+        printf("4. Exit\n");
+        printf("Your choice (1 - 4): ");scanf(" %d",&process);
+        switch(process)
+        {
+            case 1:
+                printf("Matrix is :\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        printf(" %.2f",matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("\n");
+            printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 2:
+                printf("Matrix is :\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        printf(" %.2f",matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("Matrix transpose is :\n");
+                for(i=0;i<n;i++){
+                    for(j=0;j<m;j++){
+                        printf(" %.2f",matrix[j][i]);
+                    }
+                    printf("\n");
+                }
+                printf("\n");
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 3:
+                
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 4:
+        
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            default:
+        
+                printf("Please enter a valid input");scanf(" %c",&answer);
+                answer=y;
+            break;
+        }
+    }while(answer=='y'||answer=='Y');
     return 0;
 }
