@@ -19,7 +19,7 @@ int main()
     printf("Enter the M values :\n");
     Y=n;
     X=m;
-    float y,x,matrix[Y][X];
+    float y,x,matrix[Y][X],max;
     for(i=0;i<m;i++){
         for(j=0;j<n;j++){
             printf("M[%d][%d] = ",i,j);scanf(" %f",&matrix[i][j]);
@@ -64,11 +64,21 @@ int main()
                 printf("More operation Y/N ?");scanf(" %c",&answer);
             break;
             case 3:
-                
+            printf("Mac value: ");
+                for(i=0; i<4; i++){
+                    max=matrix[j][i];
+                    for(j=0;j<m;j++){
+                        if (max < matrix[j][i]){
+                            max=matrix[j][i];
+                        }
+                    }
+                    printf("%.2f     ", max);
+                }
+                printf("\n");
                 printf("More operation Y/N ?");scanf(" %c",&answer);
             break;
             case 4:
-        
+                answer=y;
                 printf("More operation Y/N ?");scanf(" %c",&answer);
             break;
             default:
