@@ -1,5 +1,28 @@
-/*  Percent Difference Function - (Requires the inclusion of the math.h library for fabs function)  */
+/*Julio Gonzalez lab 10a*/
+#include <stdio.h>
+#include <math.h>
+#define NROWS 7
+#define NCOLS 4
 
+/*Main function*/
+int main(){
+    double PO[NROWS][NCOLS];
+    int WK,DY,i,j;
+    PO[NROWS][NCOLS]={
+        {253.14,222.89,250.01,217.45},
+        {203.57,211.57,195.24,200.14},
+        {249.22,246.24,213.10,255.98},
+        {212.12,200.45,245.98,214.22},
+        {240.91,252.86,221.36,280.25},
+        {200.11,199.10,256.37,244.14},
+        {241.00,231.86,242.22,250.34}
+    }
+    
+}
+/*end of main function*/
+
+
+/*  Percent Difference Function - (Requires the inclusion of the math.h library for fabs function)  */
 double perdiff(double A, double B)
 {
      return fabs(A-B)/((A+B)/2)*100;
@@ -45,3 +68,5 @@ double col_std_dev(double x[NROWS][NCOLS], int col)
 
     return sqrt(sumvar/(NROWS-1));
 }
+
+
