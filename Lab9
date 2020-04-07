@@ -1,0 +1,22 @@
+/*Julio Gonzalez Laba9*/
+
+#include <stdio.h>
+#include <math.h>
+#define NROWS 3
+#define NCOLS 4
+int main()
+{
+    int A[NROWS][NCOLS],B[NROWS][NCOLS];
+    int i,j,c;
+    
+    A[NROWS][NCOLS]={{2,3,-1,4},{8,7,0,5},{-2,9,10,-3}};
+    B[NROWS][NCOLS]={{7,8,-1,4},{8,0,0,-8},{2,11,9,-13}};
+    printf("A = \n");
+    for(i=0;i<NROWS;i++){
+        for(j=0;j<NCOLS;j++){
+        printf("%4d ",A[i][j]);
+        printf("\n");
+        }
+    }
+    return 0;
+}
