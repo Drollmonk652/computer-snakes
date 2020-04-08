@@ -6,9 +6,9 @@
 
 /*Main function*/
 int main(){
-    double PO[NROWS][NCOLS];
-    int WK,DY,i,j;
-    PO[NROWS][NCOLS]={
+    int WK,IWK,OWK,i,j,choice,kg=0;
+    double PO;
+    double x[NROWS][NCOLS]={
         {253.14,222.89,250.01,217.45},
         {203.57,211.57,195.24,200.14},
         {249.22,246.24,213.10,255.98},
@@ -16,8 +16,41 @@ int main(){
         {240.91,252.86,221.36,280.25},
         {200.11,199.10,256.37,244.14},
         {241.00,231.86,242.22,250.34}
-    }
+    };
+    double perdiff(double A, double B);
+    double pererr(double A, double B);
+    double col_mean(double x[NROWS][NCOLS], int col);
+    double col_std_dev(double x[NROWS][NCOLS], int col);
     
+    do{
+        printf("Please Choose an operation:\n");
+        printf("1. Show Statistical data of specific week\n");
+        printf("2. Persenct different between two weeks of data\n");
+        printf("3. End the program\n");
+        printf("Your choice:  \n");scanf(" %d",&choice);
+        
+        
+        switch(choice){
+            case 1:
+                printf("Which week (1-4)):");scanf(" %d",&WK);
+                printf("Ideal power output:");scanf(" %lf",&PO);printf("\nStatistical data week-%d:  \n",WK);
+                printf("-----------------------------------------\n");
+                printf("Mean                :  %4.2lf \n",col_mean(x,WK));
+                printf("STD. deviation      :  %4.2lf \n",col_std_dev(x,WK));
+                printf("Percent error       :  %4.2lf  \n",pererr(PO,col_mean(x,WK)));
+                kg=0;
+            break;
+            case 2:
+                printf("Please enter which weeks for calculation sepatated by space: ");scanf(" %d %d",&IWK,&OWK);
+                printf("\n Percent difference between the average of week-%d and week-%d is %.2lf\n\n",IWK,OWK,pererr(PO,253.4));
+                kg=0;
+            break;
+            case 3:
+                kg=1;
+            break;
+        }
+    }while(kg==0);
+        return 0;
 }
 /*end of main function*/
 
@@ -68,5 +101,3 @@ double col_std_dev(double x[NROWS][NCOLS], int col)
 
     return sqrt(sumvar/(NROWS-1));
 }
-
-
