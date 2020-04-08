@@ -1,6 +1,7 @@
 /*Julio Gonzalez lab 10a*/
 #include <stdio.h>
 #include <math.h>
+#include <stat_lib.h>
 #define NROWS 7
 #define NCOLS 4
 
@@ -21,15 +22,15 @@ int main(){
     double pererr(double A, double B);
     double col_mean(double x[NROWS][NCOLS], int col);
     double col_std_dev(double x[NROWS][NCOLS], int col);
-    
+
     do{
         printf("Please Choose an operation:\n");
         printf("1. Show Statistical data of specific week\n");
         printf("2. Persenct different between two weeks of data\n");
         printf("3. End the program\n");
         printf("Your choice:  \n");scanf(" %d",&choice);
-        
-        
+
+
         switch(choice){
             case 1:
                 printf("Which week (1-4)):");scanf(" %d",&WK);
@@ -54,50 +55,3 @@ int main(){
 }
 /*end of main function*/
 
-
-/*  Percent Difference Function - (Requires the inclusion of the math.h library for fabs function)  */
-double perdiff(double A, double B)
-{
-     return fabs(A-B)/((A+B)/2)*100;
-}
-
-/* end */
-
-/*  Percent Error Function - (Requires the inclusion of the math.h library for fabs function) */
-
-double pererr(double A, double B)
-{
-     return fabs(A-B)/A*100;
-}
-
-/* end */
-
-/*  Column mean function    */
-
-double col_mean(double x[NROWS][NCOLS], int col)
-{
-    int k;
-    double sum=0;
-
-    for(k=0;k<=NROWS-1;k++)
-       sum+=x[k][col];
-
-    return sum/NROWS;
-}
-
-/* end */
-
-
-/*  Column standard deviation function		*/
-
-double col_std_dev(double x[NROWS][NCOLS], int col)
-{
-    int k;
-    double sumvar=0;
-    double col_mean(double x[NROWS][NCOLS], int col);
-
-    for(k=0;k<=NROWS-1;k++)
-       sumvar+=((col_mean(x, col)-x[k][col])*(col_mean(x,col)-x[k][col]));
-
-    return sqrt(sumvar/(NROWS-1));
-}
