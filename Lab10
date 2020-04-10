@@ -1,103 +1,113 @@
-/*Julio Gonzalez lab 10a*/
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/*  Homework #9 program                                       */
+/*                                                            */
+/*  This program computes average power, average magnitude    */
+/*  and zero crossings from a speech signal.                  */
+
 #include <stdio.h>
 #include <math.h>
-#define NROWS 7
-#define NCOLS 4
+#define MAXIMUM 50
 
-/*Main function*/
-int main(){
-    int WK,IWK,OWK,i,j,choice,kg=0;
-    double PO;
-    double x[NROWS][NCOLS]={
-        {253.14,222.89,250.01,217.45},
-        {203.57,211.57,195.24,200.14},
-        {249.22,246.24,213.10,255.98},
-        {212.12,200.45,245.98,214.22},
-        {240.91,252.86,221.36,280.25},
-        {200.11,199.10,256.37,244.14},
-        {241.00,231.86,242.22,250.34}
-    };
-    double perdiff(double A, double B);
-    double pererr(double A, double B);
-    double col_mean(double x[NROWS][NCOLS], int col);
-    double col_std_dev(double x[NROWS][NCOLS], int col);
-
-    do{
-        printf("Please Choose an operation:\n");
-        printf("1. Show Statistical data of specific week\n");
-        printf("2. Persenct different between two weeks of data\n");
-        printf("3. End the program\n");
-        printf("Your choice:  \n");scanf(" %d",&choice);
-
-
-        switch(choice){
-            case 1:
-                printf("Which week (1-4)):");scanf(" %d",&WK);
-                printf("Ideal power output:");scanf(" %lf",&PO);printf("\nStatistical data week-%d:  \n",WK);
-                printf("-----------------------------------------\n");
-                printf("Mean                :  %4.2lf \n",col_mean(x,WK));
-                printf("STD. deviation      :  %4.2lf \n",col_std_dev(x,WK));
-                printf("Percent error       :  %4.2lf  \n",pererr(PO,col_mean(x,WK)));
-                kg=0;
-            break;
-            case 2:
-                printf("Please enter which weeks for calculation sepatated by space: ");scanf(" %d %d",&IWK,&OWK);
-                printf("\n Percent difference between the average of week-%d and week-%d is %.2lf\n\n",IWK,OWK,pererr(PO,253.4));
-                kg=0;
-            break;
-            case 3:
-                kg=1;
-            break;
-        }
-    }while(kg==0);
-        return 0;
-}
-/*end of main function*/
-
-
-/*  Percent Difference Function - (Requires the inclusion of the math.h library for fabs function)  */
-double perdiff(double A, double B)
+int main(void)
 {
-     return fabs(A-B)/((A+B)/2)*100;
+   /*  Declare variables   */
+   int k=0, npts=30;
+   double speech[MAXIMUM]={0.000000,-0.023438,-0.031250,-0.031250,-0.039063,-0.039063,-0.023438,0.000000,0.023438,0.070313,-0.039063,-0.039063,0.046875,0.101563,0.117188,0.101563,0.070313,0.054688,0.023438,0.000000,-0.031250,-0.039063,-0.070313,-0.070313,-0.070313,-0.070313,-0.062500,-0.046875,-0.039063,-0.031250};
+   /* Declare the function prototypes */
+   void print(double x[], int npts, int numcols);
+   double ave_power(double x[],int npts);
+   double ave_magn(double x[],int npts);
+   int crossings(double x[],int npts);
+   
+   /*  Compute and print statistics.  */
+   printf("\n SPEECH DATA ");
+   print(speech,npts,6);//complete the statement
+   printf("\n");
+   printf(" SPEECH STATISTICS : \n");
+   printf(" average power: %lf \n", ave_power(speech,npts));//complete the statement
+   printf(" average magnitude: %lf \n",ave_magn(speech,npts));//complete the statement
+   printf(" zero crossings: %d \n",crossings(speech,npts));//complete the statement
+
+
+   /*  Exit program.  */
+   return 0;
 }
 
-/* end */
-
-/*  Percent Error Function - (Requires the inclusion of the math.h library for fabs function) */
-
-double pererr(double A, double B)
+/*   This function prints the data in the number of desired */
+/*   column numcols                                         */
+void print(double x[], int npts, int numcols)
 {
-     return fabs(A-B)/A*100;
+   int i,j;
+   printf("\n ");
+   for(j=0;j<numcols;j++)
+	   printf("-----------");
+   printf("\n");
+   for(j=0;j<numcols;j++)
+   {
+	  printf("   %2d to %2d",((npts/numcols)*j)+1,((npts/numcols)*j)+(npts/numcols));
+   }
+   printf("\n ");
+   for(j=0;j<numcols;j++)
+	   printf("-----------");
+   printf("\n");
+   for(i=0;i<npts/numcols;i++)
+   {
+	   for(j=0;j<numcols;j++)
+		   printf("%11.6lf",x[((npts/numcols)*j)+i]);
+	   printf("\n");
+   }
 }
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/*  This function returns the average power of an array x     */
+/*  with npts elements.                                       */
 
-/* end */
-
-/*  Column mean function    */
-
-double col_mean(double x[NROWS][NCOLS], int col)
+double ave_power(double x[],int npts)
 {
-    int k;
-    double sum=0;
+   /*  Declare and initialize variables.  */
+   int k;
+   double sum=0;
 
-    for(k=0;k<=NROWS-1;k++)
-       sum+=x[k][col];
+   /*  Determine average power.  */
+   for (k=0; k<=npts-1; k++)
+      sum += x[k]*x[k];
 
-    return sum/NROWS;
+   /*  Return average power.  */
+   return sum/npts;
 }
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/*  This function returns the average magnitude of an array x */
+/*  with npts elements.                                       */
 
-/* end */
-
-
-/*  Column standard deviation function		*/
-
-double col_std_dev(double x[NROWS][NCOLS], int col)
+double ave_magn(double x[],int npts)
 {
-    int k;
-    double sumvar=0;
-    double col_mean(double x[NROWS][NCOLS], int col);
+   /*  Declare and initialize variables.  */
+   int k;
+   double sum=0;
 
-    for(k=0;k<=NROWS-1;k++)
-       sumvar+=((col_mean(x, col)-x[k][col])*(col_mean(x,col)-x[k][col]));
+   /*  Determine average power.  */
+   for (k=0; k<=npts-1; k++)
+      sum += fabs(x[k]);
 
-    return sqrt(sumvar/(NROWS-1));
+   /*  Return average magnitude.  */
+   return sum/npts;
 }
+
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/*  This function returns a count of the number of zero       */
+/*  crossings in an array x with npts values.                 */
+
+int crossings(double x[],int npts)
+{
+   /*  Declare and initialize variables.  */
+   int count=0, k;
+
+   /*  Determine number of zero crossings.  */
+   for (k=0; k<=npts-2; k++)
+      if (x[k]*x[k+1] < 0)
+         count++;
+
+   /*  Return number of zero crossings.  */
+   return count;
+}
+/*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
