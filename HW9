@@ -1,5 +1,5 @@
 /*––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/*  Homework #9 program                                       */
+/*  Julio Gonzalez Homework #9 program                        */
 /*                                                            */
 /*  This program computes average power, average magnitude    */
 /*  and zero crossings from a speech signal.                  */
@@ -14,17 +14,19 @@ int main(void)
    int k=0, npts=30;
    double speech[MAXIMUM]={0.000000,-0.023438,-0.031250,-0.031250,-0.039063,-0.039063,-0.023438,0.000000,0.023438,0.070313,-0.039063,-0.039063,0.046875,0.101563,0.117188,0.101563,0.070313,0.054688,0.023438,0.000000,-0.031250,-0.039063,-0.070313,-0.070313,-0.070313,-0.070313,-0.062500,-0.046875,-0.039063,-0.031250};
    /* Declare the function prototypes */
+   void print(double x[], int npts, int numcols);
+   double ave_power(double x[],int npts);
+   double ave_magn(double x[],int npts);
+   int crossings(double x[],int npts);
    
-  
- 
    /*  Compute and print statistics.  */
    printf("\n SPEECH DATA ");
-   print(,,);//complete the statement
+   print(speech,npts,6);//complete the statement
    printf("\n");
    printf(" SPEECH STATISTICS : \n");
-   printf(" average power: %f \n",);//complete the statement
-   printf(" average magnitude: %f \n",);//complete the statement
-   printf(" zero crossings: %d \n",);//complete the statement
+   printf(" average power: %lf \n", ave_power(speech,npts));//complete the statement
+   printf(" average magnitude: %lf \n",ave_magn(speech,npts));//complete the statement
+   printf(" zero crossings: %d \n",crossings(speech,npts));//complete the statement
 
 
    /*  Exit program.  */
