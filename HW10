@@ -1,0 +1,92 @@
+/*Julio Gonzalez HW8*/
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int i,j=0,m,n,Y,X,c=0,process;
+    char answer;
+    printf("Program to process mxn matrix M\n");
+    printf("=========================================\n");
+    do
+    {
+        printf("Please enter the row width m (1-5)  :");scanf(" %d",&m);
+    }while(m<=1||m>=5);
+    do
+    {
+        printf("Please enter the column width n (1-5) :");scanf(" %d",&n);
+    }while(n<=1||n>=5);
+    printf("\nMatrix size of M is  %dx%d \n\n",m,n);
+    printf("Enter the M values :\n");
+    Y=n;
+    X=m;
+    float y,x,matrix[Y][X],max;
+    for(i=0;i<m;i++){
+        for(j=0;j<n;j++){
+            printf("M[%d][%d] = ",i,j);scanf(" %f",&matrix[i][j]);
+        }
+    } 
+    do{
+        printf("Please choose an operation.\n");
+        printf("1. Just display the matrix\n");
+        printf("2. Display the matrix and its transpose\n");
+        printf("3. Find max value of each column\n");
+        printf("4. Exit\n");
+        printf("Your choice (1 - 4): ");scanf(" %d",&process);
+        switch(process)
+        {
+            case 1:
+                printf("Matrix is :\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        printf(" %.2f",matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("\n");
+            printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 2:
+                printf("Matrix is :\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        printf(" %.2f",matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("Matrix transpose is :\n");
+                for(i=0;i<n;i++){
+                    for(j=0;j<m;j++){
+                        printf(" %.2f",matrix[j][i]);
+                    }
+                    printf("\n");
+                }
+                printf("\n");
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 3:
+            printf("Mac value: ");
+                for(i=0; i<4; i++){
+                    max=matrix[j][i];
+                    for(j=0;j<m;j++){
+                        if (max < matrix[j][i]){
+                            max=matrix[j][i];
+                        }
+                    }
+                    printf("%.2f     ", max);
+                }
+                printf("\n");
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            case 4:
+                answer=y;
+                printf("More operation Y/N ?");scanf(" %c",&answer);
+            break;
+            default:
+        
+                printf("Please enter a valid input");scanf(" %c",&answer);
+                answer=y;
+            break;
+        }
+    }while(answer=='y'||answer=='Y');
+    return 0;
+}
