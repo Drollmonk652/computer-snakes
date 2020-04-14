@@ -61,7 +61,7 @@ int main(){
             printf("Date #|   Experiment  |  Experiment 2\n");
             printf("--------------------------------------\n");
             for(i=0;i<numofdata;i++){
-                printf(" %d     |  %.2lf | %.2lf \n",dp,a[i][0],a[i][1]);
+                printf(" %d     |  %4.2lf     |   %4.2lf \n",dp,a[i][0],a[i][1]);
                 dp++;
             }
             printf("More action (Y/N) ?");scanf(" %c",&answer);
@@ -69,9 +69,9 @@ int main(){
         case 2:
             dp=1;
             fout=fopen(FILENAME,"w");
-            fprintf("%d \r\n",numofdata);
+            fprintf(fout,"%d \r\n",numofdata);
             for(i=0;i<numofdata;i++){
-                fprintf(" %d  %.2lf  %.2lf \n",dp,a[i][0],a[i][1]);
+                fprintf(fout," %d  %.2lf  %.2lf \n",dp,a[i][0],a[i][1]);
                 dp++;
             }
             fclose(fout);
@@ -79,7 +79,7 @@ int main(){
             printf("More action (Y/N) ?");scanf(" %c",&answer);
             break;
     }
-    }while(answer='n'||answer=='N');
+    }while(answer=='Y'||answer=='y');
 
 
     return 0;
