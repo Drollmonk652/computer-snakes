@@ -1,0 +1,31 @@
+#include <stdio.h>
+#define N 20
+
+int main(){
+
+    FILE *fout;
+    int numofdata,i;
+    float A[N];
+    printf("How many data 1-20 ");
+    scanf(" %d",&numofdata);
+
+    for(i=0;i<numofdata;i++){
+        printf("A[%d]= ",i);
+        scanf("%f",&A[i]);
+    }
+
+    fout=fopen("text.txt","w");
+    if(fout==NULL){
+        printf("File cannot be open");
+    }else{
+        fprintf(fout,"%d \r\n",numofdata);
+        for(i=0;i<numofdata;i++){
+            fprintf(fout,"%4.2lf \r\n",A[i]);
+        }
+        fclose(fout);
+    }
+
+
+    return 0;
+
+}
