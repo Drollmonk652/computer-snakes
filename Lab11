@@ -8,11 +8,15 @@
 
 int main(){
 
-    int numofdata,i;
+    int numofdata,i,dp,choice;
     double a[NROWS][NCOLS];
-    double mean1,sum1,mean2,sum2,perdiff,sum;
+    double mean1,sum1,mean2,sum2,perdiff;
 
-    perdiff=abs((mean1-mean2)/((mean1+mean2)/2))*100;
+    dp=1;
+    sum1=mean1-mean2;
+    sum2=mean1+mean2;
+
+    perdiff=sum1/(sum2/2)*100;
 
     printf("Enter the number of data : ");scanf(" %d",&numofdata);
     while(numofdata<=2 || numofdata>=10){
@@ -20,9 +24,37 @@ int main(){
     }
 
     printf("Input data Experiment-1\n");
-    for(i=0;i=numofdata;i++){
-        
+    for(i=0;i<numofdata;i++){
+        printf("Data #%d :",dp);scanf(" %lf",&a[i][0]);
+        mean1+=a[i][0];
+        dp++;
     }
+
+    printf("\nInput data Experiment-2\n");
+    dp=1;
+    for(i=0;i<numofdata;i++){
+        printf("Data #%d :",dp);scanf(" %lf",&a[i][1]);
+        mean2+=a[i][1];
+        dp++;
+    }
+
+    printf("\nthe average of experiment-1  : %4.2lf\n",mean1/numofdata);
+    printf("the average of experiment-2  : %4.2lf\n",mean2/numofdata);
+    printf("the percent difference       : %4.2lf\n\n",perdiff);
+    
+    do{
+    printf("1.Print data to monitor\n");
+    printf("2.Save data to a file\n");
+    printf("Your choice (1 or 2) : ");scanf(" %d",&choice);
+    
+    switch(choice){
+        case 1:
+            break;
+        case 2:
+            break;
+    }
+    }while(choice)
+
 
     return 0;
 }
