@@ -2,21 +2,29 @@
 
 #include <stdio.h>
 #include <math.h>
+#include "stat_lib.h"
 #define NROWS 10
 #define NCOLS 2
 #define FILENAME "prog01.txt"
+
 
 int main(){
 
     int numofdata,i,dp,choice;
     double a[NROWS][NCOLS];
-    double mean1,sum1,mean2,sum2,perdiff;
+    double mean1,sum1,mean2,sum2;
+    char answer;
+
+    FILE *fout;
 
     dp=1;
-    sum1=mean1-mean2;
-    sum2=mean1+mean2;
 
-    perdiff=sum1/(sum2/2)*100;
+    double perdiff(double A, double B);
+    double pererr(double A, double B);
+    double mean(double x[], int npts);
+    double variance(double x[],int npts);
+    double std_dev(double x[], int npts);
+
 
     printf("Enter the number of data : ");scanf(" %d",&numofdata);
     while(numofdata<=2 || numofdata>=10){
@@ -40,20 +48,38 @@ int main(){
 
     printf("\nthe average of experiment-1  : %4.2lf\n",mean1/numofdata);
     printf("the average of experiment-2  : %4.2lf\n",mean2/numofdata);
-    printf("the percent difference       : %4.2lf\n\n",perdiff);
-    
+    printf("the percent difference       : %4.2lf\n\n",perdiff(mean1,mean2));
+
     do{
     printf("1.Print data to monitor\n");
     printf("2.Save data to a file\n");
     printf("Your choice (1 or 2) : ");scanf(" %d",&choice);
-    
+
     switch(choice){
         case 1:
+            dp=1;
+            printf("Date #|   Experiment  |  Experiment 2\n");
+            printf("--------------------------------------\n");
+            for(i=0;i<numofdata;i++){
+                printf(" %d     |  %.2lf | %.2lf \n",dp,a[i][0],a[i][1]);
+                dp++;
+            }
+            printf("More action (Y/N) ?");scanf(" %c",&answer);
             break;
         case 2:
+            dp=1;
+            fout=fopen(FILENAME,"w");
+            fprintf("%d \r\n",numofdata);
+            for(i=0;i<numofdata;i++){
+                fprintf(" %d  %.2lf  %.2lf \n",dp,a[i][0],a[i][1]);
+                dp++;
+            }
+            fclose(fout);
+            printf("File was successfully created!\n");
+            printf("More action (Y/N) ?");scanf(" %c",&answer);
             break;
     }
-    }while(choice)
+    }while(answer='n'||answer=='N');
 
 
     return 0;
