@@ -1,0 +1,22 @@
+/* Julio Gonzalez Prelab 11*/
+#include <stdio.h>
+//Question 1
+#include FILENAME "waves.text"
+
+int main(){
+//Question 2
+    File *fout;
+//Question 3
+    fout=fopen(FILENAME,"r")
+//Question 4
+    fprintf(fout,"12   24 \r\n");
+    fprintf(fout,"13   26 \r\n");
+    fprintf(fout,"14   28 \r\n");
+    fprintf(fout,"15   30 \r\n");
+    fprintf(fout,"16   32 \r\n");
+    fprintf(fout,"17   34 \r\n");
+    fclose(fout);
+    
+    
+    return 0;
+}
