@@ -1,31 +1,41 @@
-/*Julio Gonzalez HW8*/
+/*Julio Gonzalez HW10*/
+
+/*Including libraries and declaring values*/
 #include <stdio.h>
 #include <math.h>
-int main()
-{
-    "Declare Variables"
-    int i,j=0,m,n,Y,X,c=0,process;
+#include "stat_lib.h"
+#define FILENAME "prog01.txt"
+#define NROWS 5
+#define NCOLS 5
+
+int main(){
+
+    /*Declaring Variables*/
+    int numofdata,i,j=0,dp,choice,n,m,Y,X,c=0,process;
+    double a[NROWS][NCOLS];
+    double mean1,sum1,mean2,sum2;
     char answer;
-    "Declare Functions"
-    enter matrix
-    print matrix
-    print matrix and transpose
-    print max value
-    
+
+    FILE *fout;
+
+    /*Including Functions*/
+    double perdiff(double A, double B);
+    double pererr(double A, double B);
+    double mean(double x[], int npts);
+    double variance(double x[],int npts);
+    double std_dev(double x[], int npts);
+
+    /*Entering Values*/
     printf("Program to process mxn matrix M\n");
     printf("=========================================\n");
     do
     {
         printf("Please enter the row width m (1-5)  :");scanf(" %d",&m);
-    }while(m<=1||m>=5);
+    }while(m<=1||m>=6);
     do
     {
         printf("Please enter the column width n (1-5) :");scanf(" %d",&n);
-    }while(n<=1||n>=5);
-    
-    
-    
-    
+    }while(n<=1||n>=6);
     printf("\nMatrix size of M is  %dx%d \n\n",m,n);
     printf("Enter the M values :\n");
     Y=n;
@@ -36,25 +46,18 @@ int main()
             printf("M[%d][%d] = ",i,j);scanf(" %f",&matrix[i][j]);
         }
     }
-    
-    
-    
-    
-    do{
-        printf("Please choose an operation.\n");
-        printf("1. Just display the matrix\n");
-        printf("2. Display the matrix and its transpose\n");
-        printf("3. Find max value of each column\n");
-        printf("4. Exit\n");
-        printf("Your choice (1 - 4): ");scanf(" %d",&process);
-        switch(process)
-        {
-            case 1:
-            
-            
-            
-            
-                printf("Matrix is :\n");
+
+    /*Cases*/
+     do{
+    printf("1.Just display the matrix\n");
+    printf("2.Display the matrix and its tranpose\n");
+    printf("3.Find max value of each column and write to file\n");
+    printf("4.Exit\n");
+    printf("Your choice (1-4)");scanf(" %d",&choice);
+
+    switch(choice){
+        case 1:
+            printf("Matrix is :\n");
                 for(i=0;i<m;i++){
                     for(j=0;j<n;j++){
                         printf(" %.2f",matrix[i][j]);
@@ -63,21 +66,18 @@ int main()
                 }
                 printf("\n");
             printf("More operation Y/N ?");scanf(" %c",&answer);
-            
-            
-            
-            
             break;
-            case 2:
-                printf("Matrix is :\n");
+        case 2:
+            printf("Matrix is :\n");
                 for(i=0;i<m;i++){
                     for(j=0;j<n;j++){
                         printf(" %.2f",matrix[i][j]);
                     }
                     printf("\n");
                 }
-                printf("Matrix transpose is :\n");
-                for(i=0;i<n;i++){
+                printf("\n");
+            printf("The tranpose is : \n");
+            for(i=0;i<n;i++){
                     for(j=0;j<m;j++){
                         printf(" %.2f",matrix[j][i]);
                     }
@@ -86,8 +86,25 @@ int main()
                 printf("\n");
                 printf("More operation Y/N ?");scanf(" %c",&answer);
             break;
-            case 3:
-            printf("Mac value: ");
+        case 3:
+            printf("Matrix is :\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        printf(" %.2f",matrix[i][j]);
+                    }
+                    printf("\n");
+                }
+                printf("\n");
+            fout=fopen(FILENAME,"w");
+            fprintf(fout,"Matrix is :\r\n");
+                for(i=0;i<m;i++){
+                    for(j=0;j<n;j++){
+                        fprintf(fout," %.2f",matrix[i][j]);
+                    }
+                    fprintf(fout,"\r\n");
+                }
+            fprintf(fout,"\r\n Max value: ");
+
                 for(i=0; i<4; i++){
                     max=matrix[j][i];
                     for(j=0;j<m;j++){
@@ -95,21 +112,16 @@ int main()
                             max=matrix[j][i];
                         }
                     }
-                    printf("%.2f     ", max);
+                    fprintf(fout,"%.2lf  ", max);
                 }
-                printf("\n");
-                printf("More operation Y/N ?");scanf(" %c",&answer);
+            fclose(fout);
+            printf("File was successfully created!\n");
+            printf("More action (Y/N) ?");scanf(" %c",&answer);
             break;
-            case 4:
-                answer=y;
-                printf("More operation Y/N ?");scanf(" %c",&answer);
-            break;
-            default:
-        
-                printf("Please enter a valid input");scanf(" %c",&answer);
-                answer=y;
-            break;
-        }
-    }while(answer=='y'||answer=='Y');
+    }
+    }while(answer=='Y'||answer=='y');
+
+
+
     return 0;
 }
