@@ -25,15 +25,28 @@ int main(){
       printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 3:
+      printf("A = \n");
+      printf("B = \n");
+      printf("A + B = \n");
       printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 4:
+      printf("A = \n");
+      printf("B = \n");
+      printf("A - B = \n");
       printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 5:
+      printf("A = \n");
+      printf("B = \n");
+      printf("A X B = \n");
       printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 6:
+      printf("A = \n");
+      printf("Determinant : ");
+      printf("B = \n");
+      printf("Determinant : ");
       printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 7:
