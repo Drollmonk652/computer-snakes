@@ -1,0 +1,61 @@
+/*Julio Gonzalez Lab12*/
+#include <stdio.h>
+#include <math.h>
+#include "stat_lib.h"
+#define NROWS 2000
+#define FILENAME "lab12.txt"
+
+int main(){
+/*Declaring Functions*/
+    double perdiff(double A, double B);
+    double pererr(double A, double B);
+    double mean(double x[], int npts);
+    double std_dev(double x[], int npts);
+/*Declare variables*/
+    int numofdata,choice,i,j,n,datanum;
+    double mn,stdev,pe,knownvalue,a[NROWS];
+    char answer;
+/*Opening files*/
+    FILE*data;
+    data=fopen(FILENAME,"r");
+    if(FILENAME == NULL){
+        printf("Files can't be open \n");
+    }else{
+        fscanf(data," %d",&n);
+        for(i=0;i<n;i++){
+            fscanf(data," %lf",&a[i]);
+        }
+        printf("Number of data     : %d \n",n);
+        printf("Mean               : %.3lf \n",mean(a, n));
+        printf("Standard deviation : %.3lf\n",std_dev(a,n));
+
+/*INput*/
+        do{
+        printf("Choose a process");
+        printf("1. Review a data\n");
+        printf("2. Calculate percent error\n");
+        printf("3. Exit\n");
+        printf("Your choice (1 or 2) : ");scanf(" %d",&choice);
+/*Process*/
+        switch(choice){
+            case 1:
+                printf("You chose to review data.\n");
+                printf("Please enter data number (1-%d): ",n);scanf("%d",&datanum);
+                printf("Data %d : %.3lf   \n",datanum,a[datanum-1]);
+                printf("More process (Y/N)? ");scanf(" %c",&answer);
+                break;
+            case 2:
+                printf("You chose to calculate percent error.\n");
+                printf("Enter the known value : ");scanf(" %lf",&knownvalue);
+                printf("Percent error : %.3lf % \n",pererr(knownvalue,mean(a, n)));
+                printf("More process (Y/N)? ");scanf(" %c",&answer);
+                break;
+            case 3:
+                answer='n';
+                break;
+        }
+        }while(answer=='Y'||answer=='y');
+    }
+    fclose(data);
+    return 0;
+}
