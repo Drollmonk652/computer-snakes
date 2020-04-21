@@ -1,0 +1,90 @@
+/*Julio Gonzalez Writing Data to file*/
+#include <stdio.h>
+#define N 10
+#define NROWS 3
+#define NCOLS 3
+#define vectf1 "A.txt"
+#define vectf2 "B.txt"
+#define matf1 "A2.txt"
+#define matf2 "B2.txt"
+
+int main(){
+    int dot_product(int a[],int b[],int n);
+    void add(int a[NROWS][NCOLS], int b[NROWS][NCOLS],int c[NROWS][NCOLS]);
+    int A[N],B[N],Amat[NROWS][NCOLS],Bmat[NROWS][NCOLS],Cmat[NROWS][NCOLS],i,j,dot,n;
+    void printmat(int a[NROWS][NCOLS]);
+    FILE *vecta,*vectb,*mata,*matb;
+    vecta=fopen(vectf1,"r");
+    vectb=fopen(vectf2,"r");
+    mata=fopen(matf1,"r");
+    matb=fopen(matf2,"r");
+    if(vecta == NULL || vectb == NULL){
+        printf("Files can't be open \n");
+    }else{
+    //Input
+    fscanf(vecta," %d",&n);
+    for(i=0;i<n;i++){
+        fscanf(vecta," %d",&A[i]);
+    }
+    fscanf(vectb," %d",&n);
+    for(i=0;i<n;i++){
+        fscanf(vectb," %d",&B[i]);
+    }
+    //Reading matrix
+    for(i=0;i<NROWS;i++){
+        for(j=0;j<NCOLS;j++){
+            fscanf(mata," %d",&Amat[i][j]);
+        }
+    }
+    for(i=0;i<NROWS;i++){
+        for(j=0;j<NCOLS;j++){
+            fscanf(matb," %d",&Bmat[i][j]);
+        }
+    }
+    //Process
+    dot = dot_product(A,B,10);
+    add(Amat,Bmat,Cmat);
+    printf("A=\n");
+    printmat(Amat);
+    printf("B=\n");
+    printmat(Bmat);
+    printf("A+B=\n");
+    printmat(Cmat);
+    //Output
+    printf("Dot product of A and B is %d \n",dot);
+    fclose(vecta);
+    fclose(vectb);
+    }
+    return 0;
+}
+
+int dot_product(int a[],int b[],int n){
+    int k;
+    int sum=0;
+    for(k=0;k<n;k++){
+        sum+=a[k]*b[k];
+    }
+    return sum;
+}
+//function; c=a_b
+void add(int a[NROWS][NCOLS], int b[NROWS][NCOLS],int c[NROWS][NCOLS]){
+    int i,j;
+    for(i=0;i<NROWS;i++){
+        for(j=0;j<NCOLS;j++){
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    }
+    return;
+}
+
+void printmat(int a[NROWS][NCOLS]){
+    int i,j;
+    for(i=0;i<NROWS;i++){
+        for(j=0;j<NCOLS;j++){
+            printf(" %4d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    return;
+}
