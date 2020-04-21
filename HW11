@@ -16,18 +16,28 @@ int main(){
   printf("Your choice is : ");scanf(" %d",&choice);
   switch(choice){
     case 1:
+      printf("The matrix is : \n");
+      printf("The transpose matrix is : \n");
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 2:
+      printf("Dot product is ");
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 3:
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 4:
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 5:
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 6:
+      printf("Do you want more operation (Y/N) ?");scanf(" %c",&answer);
       break;
     case 7:
+      answer='N';
       break;
   } while(answer=='Y'||answer=='y');
   return 0;
