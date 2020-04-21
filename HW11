@@ -1,0 +1,34 @@
+/*Julio Gonzalez HW 11*/
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+  int choice;
+  char answer;
+  printf("Please choose the operation \n");
+  printf("1. Transpose a 2D matrix \n");
+  printf("2. Dot product of two vectors \n");
+  printf("3. Addition of two 2D matrices \n");
+  printf("4. Substraction of two 2D matrices \n");
+  printf("5. Multiplication of two 2D matrices \n");
+  printf("6. Determinants of two 2D matrices \n");
+  printf("7. Exit \n");
+  printf("Your choice is : ");scanf(" %d",&choice);
+  switch(choice){
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+    case 6:
+      break;
+    case 7:
+      break;
+  } while(answer=='Y'||answer=='y');
+  return 0;
+}
