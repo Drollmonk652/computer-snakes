@@ -1,28 +1,280 @@
-Coffee order: almond milk, coconut and caramel flavoring, and Splenda
-Allergies/foods not eaten: Meat, dust
-Color: Red and black
-Birthday: May 24th
-Eyes: Green
-Major: Mechanical engineering
-Likes: Ramen, trying new foods, traveling, music, Rum and beer
-Dislikes: Tequila
-Work: 7/11
+/*Julio Gonzalez HW11*/
+#include <stdio.h>
+#include <math.h>
+//#include "matrix_lib.h"
+#define FILENAME1 "mata.txt"
+#define FILENAME2 "matb.txt"
+#define FILENAME3 "vecta.txt"
+#define FILENAME4 "vectb.txt"
+#define N 10
+#define NROWS 3
+#define NCOLS 3
 
-Things to know:
--Bi
--Thinks shes asexual
--Loves new tech
--Vinyl Collection
--Bubble baths
--Swedish fish
+int main(){
 
-History
--Played football
--Played soccer
--In UCO because of ex
+    int dot_product(int a[],int b[],int n);
+    int det3by3(int a[N][N]);
+    void transpose(int b[NROWS][NCOLS],int bt[NROWS][NCOLS]);
+    void add(int a[NROWS][NCOLS],int b[NROWS][NCOLS],int c[NROWS][NCOLS]);
+    void sub(int a[NROWS][NCOLS],int b[NROWS][NCOLS],int c[NROWS][NCOLS]);
+    void printmat(int a[NROWS][NCOLS]);
+    void matrix_mult(int a[N][N],int b[N][N],int c[N][N]);
 
-Family
--disowned
-Mother-jail
-Father-Maybe not father
-Stole vinyl from uncle
+    int choice,n,i,j,k,sum,sum1;
+    char answer;
+    int matA[NROWS][NCOLS],matAT[NROWS][NCOLS],matB[NROWS][NCOLS],matAB[NROWS][NCOLS],vectA[N],vectB[N];
+
+    FILE *data1,*data2,*data3,*data4;
+        do{
+            printf("PLEASE CHOOSE THE OPERATION \n");
+            printf("1. Transpose a 2D matrix \n");
+            printf("2. Dot Product of two vectors \n");
+            printf("3. Addition of two 2D matrices \n");
+            printf("4. Subtraction of two 2D matrices \n");
+            printf("5. Multiplication of two 2D matrices \n");
+            printf("6. Determinants of two 2D matrices \n");
+            printf("7. Exit \n");
+            printf("Your choice is : ");scanf(" %d",&choice);
+            printf("\n");
+
+            switch(choice){
+                case 1:
+                    data1=fopen(FILENAME1,"r");
+                    if(data1==NULL){
+                        printf("Files can't be open \n");
+                    }else{
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data1,"%d",&matA[i][j]);
+                            }
+                        }
+                    fclose(data1);
+                    transpose(matA,matAT);
+                    printf("The matrix is: \n");
+                    printmat(matA);
+                    printf("The transpose is: \n");
+                    printmat(matAT);
+                    }
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    break;
+                case 2:
+                    data3=fopen(FILENAME3,"r");
+                    data4=fopen(FILENAME4,"r");
+                    fscanf(data3," %d",&n);
+                    for(i=0;i<n;i++){
+                        fscanf(data3," %d",&vectA[i]);
+                    }
+                    fscanf(data4," %d",&n);
+                    for(i=0;i<n;i++){
+                        fscanf(data4," %d",&vectB[i]);
+                    }
+                    printf("Dot product is %d \n",dot_product(vectA,vectB,N));
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    fclose(data3);
+                    fclose(data4);
+                    break;
+                case 3:
+                    data1=fopen(FILENAME1,"r");
+                    data2=fopen(FILENAME2,"r");
+                    if(data1==NULL||data2==NULL){
+                        printf("Files can't be open \n");
+                    }else{
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data1,"%d",&matA[i][j]);
+                            }
+                        }
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data2,"%d",&matB[i][j]);
+                            }
+                        }
+                    fclose(data1);
+                    fclose(data2);
+                    printf("A = \n");
+                    printmat(matA);
+                    printf("B = \n");
+                    printmat(matB);
+                    add(matA,matB,matAB);
+                    printf("A + B = \n");
+                    printmat(matAB);
+                    }
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    break;
+                case 4:
+                    data1=fopen(FILENAME1,"r");
+                    data2=fopen(FILENAME2,"r");
+                    if(data1==NULL||data2==NULL){
+                        printf("Files can't be open \n");
+                    }else{
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data1,"%d",&matA[i][j]);
+                            }
+                        }
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data2,"%d",&matB[i][j]);
+                            }
+                        }
+                    fclose(data1);
+                    fclose(data2);
+                    printf("A = \n");
+                    printmat(matA);
+                    printf("B = \n");
+                    printmat(matB);
+                    sub(matA,matB,matAB);
+                    printf("A - B = \n");
+                    printmat(matAB);
+                    }
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    break;
+                case 5:
+                    data1=fopen(FILENAME1,"r");
+                    data2=fopen(FILENAME2,"r");
+                    if(data1==NULL||data2==NULL){
+                        printf("Files can't be open \n");
+                    }else{
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data1,"%d",&matA[i][j]);
+                            }
+                        }
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data2,"%d",&matB[i][j]);
+                            }
+                        }
+                    fclose(data1);
+                    fclose(data2);
+                    printf("A = \n");
+                    printmat(matA);
+                    printf("B = \n");
+                    printmat(matB);
+                    matrix_mult(matA,matB,matAB);
+                    printf("A X B = \n");
+                    printmat(matAB);
+                    }
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    break;
+                case 6:
+                    data1=fopen(FILENAME1,"r");
+                    data2=fopen(FILENAME2,"r");
+                    if(data1==NULL||data2==NULL){
+                        printf("Files can't be open \n");
+                    }else{
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data1,"%d",&matA[i][j]);
+                            }
+                        }
+                        for(i=0;i<NROWS;i++){
+                            for(j=0;j<NCOLS;j++){
+                                fscanf(data2,"%d",&matB[i][j]);
+                            }
+                        }
+                    fclose(data1);
+                    fclose(data2);
+                    printf("A = \n");
+                    printmat(matA);
+                    printf("Determinant : %d \n",det3by3(matA));
+                    printf("B = \n");
+                    printmat(matB);
+                    printf("Determinant : %d \n",det3by3(matB));
+                    }
+                    printf("Do you want more operation (Y/N)? ");scanf(" %c",&answer);
+                    break;
+                case 7:
+                    answer='y';
+                    break;
+            }
+        }while(answer=='y'||answer=='Y');
+    return 0;
+}
+
+
+
+
+
+
+
+
+int dot_product(int a[],int b[],int n)
+{
+  int k;
+  int sum=0;
+
+  for (k=0;k<n;k++){
+     sum+= a[k]*b[k];
+  }
+  return sum;
+}
+
+int det3by3(int a[N][N])
+{
+   int k;
+   int sum;
+
+   sum=(a[0][0]*a[1][1]*a[2][2])+(a[0][1]*a[1][2]*a[2][0])+(a[0][2]*a[1][0]*a[2][1])-(a[2][0]*a[1][1]*a[0][2])-(a[2][1]*a[1][2]*a[0][0])-(a[2][2]*a[1][0]*a[0][1]);
+
+   return sum;
+}
+
+void transpose(int b[NROWS][NCOLS],int bt[NROWS][NCOLS])
+{
+   int i,j;
+
+   for (i=0;i<NROWS;i++)
+	   for (j=0;j<NCOLS;j++)
+		   bt[j][i]=b[i][j];
+
+   return;
+}
+
+void add(int a[NROWS][NCOLS],int b[NROWS][NCOLS],int c[NROWS][NCOLS])
+{
+   int i,j;
+
+   for (i=0;i<NROWS;i++)
+	   for (j=0;j<NCOLS;j++)
+		   c[i][j]=a[i][j]+b[i][j];
+
+   return;
+}
+void sub(int a[NROWS][NCOLS],int b[NROWS][NCOLS],int c[NROWS][NCOLS])
+{
+   int i,j;
+
+   for (i=0;i<NROWS;i++)
+	   for (j=0;j<NCOLS;j++)
+		   c[i][j]=a[i][j]-b[i][j];
+
+   return;
+}
+void printmat(int a[NROWS][NCOLS])
+{
+   int i,j;
+
+   for(i=0;i<NROWS;i++){
+	   for (j=0;j<NCOLS;j++){
+		   printf(" %4d",a[i][j]);
+	   }
+	   printf("\n");
+   }
+   printf("\n");
+   return;
+}
+
+void matrix_mult(int a[N][N],int b[N][N],int c[N][N])
+{
+   int i,j,k;
+
+   for (i=0;i<N;i++)
+	   for (j=0;j<N;j++){
+        c[i][j] = 0;
+        for (k=0;k<N;k++){
+            c[i][j] += a[i][k]*b[k][j];
+        }
+	   }
+   return;
+}
